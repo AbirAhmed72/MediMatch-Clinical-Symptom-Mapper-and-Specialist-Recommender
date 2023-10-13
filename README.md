@@ -1,1 +1,1 @@
-# Parsing-Symptom-and-Predicting-Disease-
+# Parsing symptom using NLP and predicting disease from those symptoms.
