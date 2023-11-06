@@ -12,9 +12,9 @@ function Logo() {
         <img
           className="hidden h-15 w-12 lg:block cursor-pointer"
           src="/platform-icon.jpg"
-          alt="platform-icon"
+          alt="platform-icon" 
         />
-        <span className="text-xl font-extrabold text-gray-800">Medicare</span>
+        <span className="text-xl font-extrabold text-gray-800">MediMatch</span>
       </a>
     </Link>
   );
