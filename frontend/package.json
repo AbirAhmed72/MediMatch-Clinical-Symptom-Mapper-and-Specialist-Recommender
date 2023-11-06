@@ -16,7 +16,8 @@
     "react-emotion": "^10.0.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.18.0",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "tw-elements-react": "^1.0.0-alpha2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

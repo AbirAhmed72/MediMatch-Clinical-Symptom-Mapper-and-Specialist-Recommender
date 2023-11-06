@@ -1,174 +1,177 @@
-import { useState, ChangeEvent } from 'react';
-import axios from 'axios';
-import Modal from 'react-modal';
+import { TERipple } from "tw-elements-react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
-interface FormData {
-  name: string;
-  email: string;
-  password: string;
-  gender: string;
-  dateOfBirth: string;
-}
-
-export default function Signup(){
-  const [formData, setFormData] = useState<FormData>({
+export default function Signup(): JSX.Element {
+  const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    password: '',
     gender: '',
     dateOfBirth: '',
+    email: '',
+    password: '',
   });
 
-  const [signupSuccess, setSignupSuccess] = useState(false); // State to track signup success
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value,
-    }));
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleGenderChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const { id, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value,
-    }));
-  };
-
-
-  const handleSignup = async () => {
-    // try {
-    //   // Make a POST request to your Express.js backend
-    //   const response = await axios.post('http://localhost/user/signup', formData, {
-    //     headers: {
-    //       'Content-Type': 'application/json', // Set the content type to JSON
-    //     },
-    //   });
-    //   // Handle the response as needed (e.g., show success modal or redirect to another page)
-    //   console.log('Signup successful!', response.data);
-    //   setSignupSuccess(true); // Set signupSuccess state to true
-    //   setIsModalOpen(true); // Open the success modal
-    //   setTimeout(() => {
-    //     setIsModalOpen(false); // Close the modal after 3 seconds (adjust as needed)
-    //     // Navigate back to the signin page
-    //     window.location.href = '/Signin';
-    //   }, 3000); // Adjust the delay (in milliseconds) as needed
-    // } catch (error) {
-    //   // Handle errors (e.g., display error message)
-    //   console.error('Signup failed:', error);
-    // }
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted with data:', formData);
+    // Add your form submission logic here
   };
 
 
   return (
-    <div className="bg-gray-200 md:container h-auto w-screen">
-      <div className="container mx-auto">
-        <img src="/platform-icon.jpg" alt="platform-logo" height={500} width={150} />
+    <section className="h-full bg-neutral-200 dark:bg-neutral-700">
+      <Navbar />
+
+      <div className="container h-full p-10">
+        <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+          <div className="w-auto">
+            <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+              <div className="px-4">
+                <div className="md:mx-6 md:p-12">
+                  <div className="text-center">
+                    <img
+                      className="mx-auto w-32"
+                      src="/platform-icon.jpg"
+                      alt="logo"
+                    />
+                    <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
+                      MediMatch
+                    </h4>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+                    <p className="mb-4 text-base">Create a new account</p>
+
+                    <div className="mb-4 flex flex-col">
+                      <label
+                        htmlFor="name"
+                        className="text-sm text-neutral-800 dark:text-neutral-200"
+                      >
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500"
+                        placeholder="Enter your name"
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    <div className="mb-4 flex flex-col">
+                      <label
+                        htmlFor="gender"
+                        className="text-sm text-neutral-800 dark:text-neutral-200"
+                      >
+                        Gender
+                      </label>
+                      <select
+                        id="gender"
+                        name="gender"
+                        value={formData.gender}
+                        onChange={handleChange}
+                        className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500"
+                      >
+                        <option value="">Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div className="mb-4 flex flex-col">
+                      <label
+                        htmlFor="dateOfBirth"
+                        className="text-sm text-neutral-800 dark:text-neutral-200"
+                      >
+                        Date of Birth
+                      </label>
+                      <input
+                        type="date"
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                        value={formData.dateOfBirth}
+                        onChange={handleChange}
+                        className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500"
+                      />
+                    </div>
+
+                    <div className="mb-4 flex flex-col">
+                      <label
+                        htmlFor="email"
+                        className="text-sm text-neutral-800 dark:text-neutral-200"
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500"
+                        placeholder="Enter your email"
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    <div className="mb-4 flex flex-col">
+                      <label
+                        htmlFor="password"
+                        className="text-sm text-neutral-800 dark:text-neutral-200"
+                      >
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500"
+                        placeholder="Enter your password"
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    <div className="mb-12 pb-1 pt-1 text-center">
+                      <TERipple
+                        rippleColor="light"
+                        className="w-full"
+                      >
+                        <button
+                          className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                          type="submit"
+                          style={{
+                            background:
+                              "linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)",
+                          }}
+                        >
+                          Sign Up
+                        </button>
+                      </TERipple>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="bg-white shadow-md rounded-md mx-auto p-8 w-96">
-        <div className="mb-4">
-          <h1 className="text-2xl font-bold text-gray-700">Sign up to MediMatch</h1>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
-            Name
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name"
-            type="text"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleInputChange} // Update the 'name' field in formData on input change
-          />
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="gender">
-            Gender
-          </label>
-          <select
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="gender"
-            value={formData.gender}
-            onChange={handleGenderChange}
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="dateOfBirth">
-            Date of Birth
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="dateOfBirth"
-            type="date"
-            placeholder="Date of Birth"
-            value={formData.dateOfBirth}
-            onChange={handleInputChange} // Update the 'dateOfBirth' field in formData on input change
-          />
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
-            Email address
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="Email address"
-            value={formData.email}
-            onChange={handleInputChange} // Update the 'email' field in formData on input change
-          />
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleInputChange} // Update the 'password' field in formData on input change
-          />
-        </div>
-
-        <div className="flex items-center justify-center">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-            onClick={handleSignup} // Call handleSignup when the button is clicked
-          >
-            Sign up
-          </button>
-        </div>
-
-        {/* Show the success modal when signup is successful */}
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={() => setIsModalOpen(false)} // Close the modal if the user clicks outside it
-          overlayClassName="fixed inset-0 flex items-center justify-center modal-overlay"
-          className="modal-content p-4 rounded bg-green-500 text-white font-bold max-w-sm mx-auto"
-          contentLabel="Signup Success Modal"
-        >
-          <div>Signup successful!</div>
-        </Modal>
-      </div>
-    </div>
+      <Footer />
+    </section>
   );
-};
-
-
+}

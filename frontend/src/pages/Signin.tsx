@@ -1,135 +1,128 @@
-import React, { useState, ChangeEvent } from 'react';
-import axios from 'axios';
-import Modal from 'react-modal';
-import Footer from '../components/Footer';
+import { TERipple } from "tw-elements-react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
-interface FormData {
-  email: string;
-  password: string;
-}
 
-export default function  Signin(){
-  const [formData, setFormData] = useState<FormData>({
-    email: '',
+export default function Signin(): JSX.Element {
+
+  const [formData, setFormData] = useState({
+    username: '',
     password: '',
   });
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value,
-    }));
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted with data:', formData);
+  };
 
-  const handleSignin = async () => {
-    // try {
-    //   console.log(formData);
-    //   // Make a POST request to your backend API
-    //   const response = await axios.post('http://localhost/user/signin', formData);
-
-    //   // Save the JWT token in localStorage
-    //   localStorage.setItem('token', response.data.token);
-
-    //   // Convert user data to JSON string and save in localStorage
-    //   localStorage.setItem('username', response.data.user.name);
-    //   localStorage.setItem('email', response.data.user.email);
-
-    //   // Handle the response as needed (e.g., show success message or redirect to home page)
-    //   console.log('Signin successful!', response.data);
-
-    //   // Show the modal for sign-in success
-    //   setIsModalOpen(true);
-
-    //   // Redirect to the home page (you should replace '/home' with the actual URL of your home page)
-    //   window.location.href = '/Home';
-    // } catch (error) {
-    //   // Handle errors (e.g., display error message)
-    //   console.error('Signin failed:', error);
-    // }
+  const handleRegisterButtonClick = () => {
+    window.location.href = '/signup';
   };
 
   return (
-    <>
-      <div className="bg-gray-200 md:container h-screen w-screen">
-        <div className="container mx-auto">
-          <img src="/platform-icon.jpg" alt="platform-logo" height={500} width={150} />
-        </div>
+    <section className="h-full bg-neutral-200 dark:bg-neutral-700">
+      <Navbar/>
 
-        <div className="bg-white shadow-md rounded-md mx-auto p-8 w-96">
-          <div className="mb-4">
-            <h1 className="text-2xl font-bold text-gray-700">Sign in to MediMatch</h1>
+      <div className="container h-full p-10">
+        <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+          <div className="w-auto">
+            <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                <div className="px-4">
+                  <div className="md:mx-6 md:p-12">
+                    {/* <!--Logo--> */}
+                    <div className="text-center">
+                      <img
+                        className="mx-auto w-32"
+                        src="/platform-icon.jpg"
+                        alt="logo"
+                      />
+                      <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
+                        MediMatch
+                      </h4>
+                    </div>
+
+                    {/* <!--Login Form--> */}
+                    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+                      <p className="mb-4 text-base">Please log in to your account</p>
+
+                      <div className="mb-4">
+                        <label htmlFor="username" className="block text-sm text-neutral-800 dark:text-neutral-200">
+                          Username
+                        </label>
+                        <input
+                          type="text"
+                          id="username"
+                          name="username"
+                          value={formData.username}
+                          onChange={handleChange}
+                          className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500 w-full"
+                          placeholder="Enter your username"
+                          autoComplete="off"
+                        />
+                      </div>
+
+                      <div className="mb-4">
+                        <label htmlFor="password" className="block text-sm text-neutral-800 dark:text-neutral-200">
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          id="password"
+                          name="password"
+                          value={formData.password}
+                          onChange={handleChange}
+                          className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500 w-full"
+                          placeholder="Enter your password"
+                          autoComplete="off"
+                        />
+                      </div>
+
+                      <div className="mb-12 pb-1 pt-1 text-center">
+                        <TERipple rippleColor="light" className="w-full">
+                          <button
+                            className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                            type="submit" // Change the type to "submit" to trigger the onSubmit function
+                            style={{
+                              background: "linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)",
+                            }}
+                          >
+                            Log in
+                          </button>
+                        </TERipple>
+                        <a href="#!">Forgot password?</a>
+                      </div>
+
+                      <div className="flex items-center justify-between pb-6">
+                        <p className="mb-0 mr-2">Don't have an account?</p>
+                        <TERipple rippleColor="light">
+                          <button
+                            type="button"
+                            className="inline-block rounded-lg border-2  px-6 py-2 text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out bg-gradient-to-r from-blue-300 to-blue-500 hover:border-blue-600 hover:bg-opacity-75 hover:text-blue-600 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 active:border-blue-700 active:text-blue-700 dark:hover:bg-opacity-75"
+                            onClick={handleRegisterButtonClick}
+                          >
+                            Register
+                          </button>
+                        </TERipple>
+
+                      </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
           </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
-              Email address
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              type="email"
-              placeholder="Email address"
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
-              type="password"
-              placeholder="Password"
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={handleSignin}
-            >
-              Sign In
-            </button>
-            <a
-              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              href="#"
-            >
-              Forgot Password?
-            </a>
-          </div>
-
-          <div className="mt-8">
-            <p className="text-gray-700">
-              Don't have an account?{' '}
-              <a className="font-bold text-blue-500 hover:text-blue-700" href="/Signup">
-                Sign up now
-              </a>
-            </p>
-          </div>
-
-          <Modal
-            isOpen={isModalOpen}
-            onRequestClose={() => setIsModalOpen(false)}
-            overlayClassName="fixed inset-0 flex items-center justify-center modal-overlay"
-            className="modal-content p-4 rounded bg-green-500 text-white font-bold max-w-sm mx-auto"
-            contentLabel="Signup Success Modal"
-          >
-            <div>Signin successful!</div>
-          </Modal>
         </div>
       </div>
 
       <Footer/>
-    </>
-   
+    </section>
   );
-};
-
-
+}
