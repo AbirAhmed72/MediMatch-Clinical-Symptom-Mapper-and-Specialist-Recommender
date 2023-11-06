@@ -21,8 +21,8 @@ function Logo() {
 }
 
 interface NavItemProps {
-    to: string;
-    text: string;
+  to: string;
+  text: string;
 }
 
 function NavItem({ to, text }: NavItemProps) {
@@ -37,15 +37,42 @@ export default function Navbar() {
   return (
     <nav className="bg-gradient-to-b from-gray-100 to-gray-200 p-2 sticky top-0 z-50">
       <div className="mx-auto max-w-8xl px-4 sm:px-8">
-        <div className="flex justify between items-center h-16">
+        <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
             <Logo />
           </div>
-          <div className="flex items-center space-x-4 pl-52">
+          <div className="flex items-center space-x-4 pl-52 justify-center content-center">
             <NavItem to="/home" text="Home" />
-            <NavItem to="/createCommunity" text="Create Community" />
+            <NavItem to="/services" text="Services" />
+            <NavItem to="/doctors" text="Doctors" />
             <NavItem to="/community" text="Community" />
-            <NavItem to="/marketplace" text="Marketplace" />
+            <NavItem to="/help" text="Help" />
+            <NavItem to="/contact" text="Contact" />
+          </div>
+
+          {/* Social Media and Email Icons */}
+          <div className="flex items-center space-x-4 ml-auto">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <img
+                className="h-6 w-6 cursor-pointer"
+                src="/facebook.png" // Replace with the path to your Facebook icon
+                alt="Facebook"
+              />
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <img
+                className="h-6 w-6 cursor-pointer"
+                src="/twitter.png" // Replace with the path to your Twitter icon
+                alt="Twitter"
+              />
+            </a>
+            <a href="mailto:info@medicare.com">
+              <img
+                className="h-6 w-6 cursor-pointer"
+                src="/email.png" // Replace with the path to your email icon
+                alt="Email"
+              />
+            </a>
           </div>
         </div>
       </div>
