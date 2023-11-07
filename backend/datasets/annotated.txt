@@ -37,8 +37,7 @@ She experiences [vague stomach problems](symptom), [mouth sores](symptom), and h
 This 89-year-old lady returns for follow-up regarding [elevated blood pressure](symptom) and resolved [right arm symptoms](symptom).
 She has concerns about [mouth sores](symptom), [Lexapro-related tremors](symptom), and swallowing large pills.
 The patient is feeling better after being admitted for [pneumonia](symptom) and [strep infection](symptom). 
-She had a [seizure](symptom) and an [LP](medical procedure) was performed. She returns due to [febrile seizure concerns](symptom) and is currently recovering from [anesthesia](medical procedure).
-The patient, who had an [NG tube](medical procedure) for decompression, states she is feeling somewhat improved.
+She had a [seizure](symptom) and an LP was performed. She returns due to [febrile seizure concerns](symptom) and is currently recovering from anesthesia.
 She mentions [less distention](symptom), [absence of bowel sounds](symptom), and [bilateral pedal swelling](symptom).
 This elderly lady has been experiencing [soreness in her mouth](symptom) and [trouble with her eyes](symptom).
 She feels a [subtle tremor](symptom) in her upper body and mentions [stomach problems](symptom).
@@ -126,3 +125,128 @@ Her platelet count fell to 10 on 01/09/07, leading to symptoms of [bruising](sym
 This patient, a former drug addict, presents with symptoms of [depression](symptom), including persistent [sadness](symptom), [low energy](symptom), and [lack of enthusiasm](symptom).
 He reports a history of [heroin addiction](symptom) and previous use of [methadone](symptom) to manage his addiction.
 He has been drug-free for about seven to eight days but continues to experience symptoms of [depression](symptom).
+This patient presents with complaints of [sickness](symptom) lasting a month, worsening over the last couple of weeks, with [yellow phlegm](symptom) and [chest discomfort](symptom) when coughing.
+He also reports recurrent [foot breakouts](symptom) related to tinea pedis, [wart on the right middle finger](symptom), and [smoking relapse](symptom).
+The patient reports [gross hematuria](symptom) for the second time this month, [buttock and leg pain](symptom) following a recent fall, [sinus discomfort](symptom), and interest in [nasal saline spray](symptom).
+The patient complains of [sore mouth](symptom), [eye discomfort](symptom), [back pain](symptom), [right shoulder pain](symptom), [persistent cough](symptom), and recent [seizure](symptom) after being treated for pneumonia.
+The patient presents with [swelling in the left leg](symptom) for three years, worsening in the past two to three months, [shoulder and back pain](symptom), [frequent urination](symptom), [weight gain](symptom), and [shortness of breath](symptom).
+The patient, with an NG tube in place, reports [feeling a bit better](symptom).
+The 89-year-old patient presents with [elevated blood pressure](symptom), [resolved right arm symptoms](symptom), [stomach problems](symptom), [oral sores](symptom), and a perceived [body tremor](symptom).
+The patient reports [palpitations](symptom), [fatigue](symptom), [anxiety](symptom), [loose stools](symptom) with [green color](symptom), [loss of appetite](symptom), and [nausea](symptom).
+The patient, a 62-year-old female, complains of [left knee pain](symptom) aggravated by kneeling, [rectal bleeding](symptom), [abdominal pain](symptom), [sneezing](symptom), [itchy throat](symptom), and [body aches](symptom).
+The 7-year-old male patient presents with a three-day history of [emesis](symptom) and a four-day history of [diarrhea](symptom). He had a fever of 103°F, [vomited after eating](symptom), and has been consuming [Pedialyte, Gatorade, white grape juice, and 7Up](symptoms) as he has not been eating anything.
+The 3-year-old male is brought in due to concerns about his [eating habits](symptom). He is a particular eater, [vomiting after eating certain foods](symptom) such as raw carrots and celery.
+The patient complains of [headaches](symptom), [dizzy spells](symptom), [intermittent neck pains](symptom), [generalized myalgias](symptom), [bruises on legs](symptom), [chest pains](symptom), [nausea](symptom), [left shoulder tenderness](symptom), and [blood sugar level of 155 after lunch](symptom).
+The 66-year-old female patient reports [right shoulder pain](symptom), [elevated blood sugar levels](symptom), and the need for a [repeat mammogram](symptom).
+The patient feels [sick and weak](symptom).
+The patient, known to the healthcare provider, has made a decision to address his [health issues](symptom) related to [high blood pressure, diabetes, obesity](symptoms), and reports [allergic symptoms](symptom), [irritable bowel syndrome with cramping](symptom), and [rectal bleeding](symptom).
+The patient has [numbness, tingling, and moderate pain in toes](symptoms) of the right foot, [paraesthesias in the left toe](symptom), and [bilateral shoulder pains](symptom).
+The patient complains of [backache](symptom), [stomachache](symptom), [dysuria](symptom), [fever](symptom), and [cough](symptom).
+The 2-year-old girl is brought in with [stuffiness](symptom), [congestion](symptom), and [nasal drainage](symptom). 
+The 12-year-old boy presents with [sinus congestion](symptom), [clear drainage](symptom), [headache](symptom), and no fever.
+The patient is brought in for possible [ear infection](symptom) with [left ear pain](symptom), [thick and purulent congestion](symptom), and a [loose, productive-sounding cough](symptom).
+This 2-year-old female patient presents with [weight loss](symptom), [breathing difficulties](symptom), and [dietary concerns](symptom). She has a history of prematurity, chronic lung disease, and gastrointestinal issues including [abdominal distension](symptom) and [constipation](symptom).
+An 11-year-old female complains of [nasal congestion](symptom) and [snorting](symptom) despite discontinuing Allegra. Additionally, she has [redness](symptom), [erythema](symptom), and [peeling skin](symptom) on her right great toe.
+A 1-year-old male has been experiencing [cough](symptom) and [congestion](symptom) for the past few weeks, with worsening cough and concerns about [ingestion of a foreign object](symptom). No fever is reported.
+This 42-year-old female patient reports worsening [asthma symptoms](symptom) over the last three months. She experiences [irritability](symptom) and [PMS symptoms](symptom) related to her menstrual cycle.
+She has also noticed [vaginal irritation](symptom) from previous medication. Menstrual irregularities include [shortened cycles](symptom) and [postmenstrual spotting](symptom).
+A child complains of [headaches](symptom), [pressure in the face](symptom), [sore throat](symptom), [cough](symptom), and a [rash](symptom) on the face, back, and arms. The rash is itchy and has been treated with Benadryl.
+A 46-year-old male with Down's syndrome is being followed up for [hypothyroidism](symptom) and [onychomycosis](symptom).
+He completed a course of Lamisil without issues. He is due for an [ALT check](symptom) and is compliant with his medications.
+Despite multiple insulin adjustments, [low appetite](symptom) and [fatigue](symptom) are reported. Changes to her insulin regimen are made.
+A 97-year-old female was admitted for [community-acquired pneumonia](symptom) and [COPD exacerbation](symptom).
+She fell at the hospital, sustaining injuries including [right anterior knee pain](symptom), [bruising](symptom), and [swelling](symptom) on the knee and elbow.
+A patient who underwent [aortic valve replacement](symptom) reports improvement postoperatively but still experiences [shortness of breath](symptom) with exertion.
+She had intermittent bursts of [fast heart rate](symptom) at home, leading to EMS contact.
+A 79-year-old female underwent attempted laparoscopic cholecystectomy due to [acute cholecystitis](symptom) 8 days ago.
+She required [conversion to an open procedure](symptom) and experienced [prolonged ileus](symptom).
+The patient is feeling better today but still has [diarrhea](symptom) and [decreased appetite](symptom). Good [urine output](symptom) is noted.
+This 60-year-old female patient complained of [coughing during meals](symptom) and underwent a modified barium swallow study to evaluate her [swallowing function and safety](symptom).
+A 6-year-old boy, post tonsillectomy and adenoidectomy, reports [no unusual voice change](symptom), [no swallowing difficulty](symptom), and improved breathing.
+A patient with diabetes has experienced [low blood glucose levels](symptom), notably in the morning, despite frequent insulin adjustments.
+She also reports [appetite](symptom) and [fatigue](symptom) but is otherwise doing well.
+A 68-year-old man presents with [cough](symptom) and brings up [green and grayish sputum](symptom) for the past three days.
+He denies [fever](symptom) or [chills](symptom).
+A 20-year-old male with a history of hydrocarbon aspiration complains of [dyspnea](symptom), [pleuritic chest pain](symptom), [hemoptysis](symptom), [nausea](symptom), and [vomiting](symptom).
+A patient keeping a food journal reports [counting calorie points](symptom) and engaging in regular [exercise](symptom).
+She experiences [improved well-being](symptom) since losing weight.
+A 56-year-old female seeks dietary consultation for [hyperlipidemia](symptom), [hypertension](symptom), [gastroesophageal reflux disease](symptom), and [weight reduction](symptom).
+She has [difficulty adjusting](symptom) to preparing food for two people and is starting a new job.
+A 38-year-old female with gestational diabetes reports [scared to eat](symptom) due to its impact on her blood sugars.
+She complains of [fatigue](symptom) and [tiredness](symptom) due to her night shift work and lack of sleep.
+A 28-year-old female with diabetes during pregnancy seeks dietary consultation. 
+She is [uncertain about ketones](symptom) and engages in [regular physical activity](symptom) by walking her daughter to school.
+A patient with a history of hyperlipidemia, hypertension, and possible metabolic syndrome reports [weight gain](symptom) despite following the prescribed meal plan. 
+She attempts [safe weight loss](symptom) strategies and regular physical activity.
+A patient is working on [dietary modifications](symptom) after receiving a letter about elevated cholesterol levels. 
+He is engaging in [regular physical activity](symptom) and is in training for a triathlon, leading to [weight loss](symptom).
+A 79-year-old African-American female diagnosed with [type 2 diabetes](symptom) in 1983, reports no allergies and provides her [height](symptom) and [weight](symptom).
+The patient's [weight](symptom) is 186-1/2 pounds, down 1-1/2 pounds in the past month. 
+The patient has [lost a total of 34-1/2 pounds](symptom) and continues positive food choices and [regular physical activity](symptom).
+This is a 62-year-old female who comes for dietary consultation for [carbohydrate counting](symptom) for type I diabetes. 
+She was hospitalized over the weekend for [DKA](symptom) and complains of [feeling unwell](symptom) due to a cold.
+He is a 24-year-old male who got into [poison ivy](symptom) and has developed a [rash](symptom) on his chest, legs, arms, and back.
+He is a 29-year-old white male who was stung by a [Yellow Jacket Wasp](symptom) and has [swelling](symptom) in his right hand and right arm.
+This 49-year-old white male presents with [hyperesthesia](symptom) on his right abdomen, left abdomen, left medial thigh, right lower abdomen, and right hip area.
+This 29-year-old Vietnamese female has [hand eczema](symptom) and experiences [dryness](symptom), [cracking](symptom), and [pain](symptom) due to fissures in her skin.
+This 1+ year-old black female has a lifelong history of [atopic eczema](symptom) and reports that her [eczema has flared](symptom). She experiences [dryness](symptom), [cracking](symptom), and [itching](symptom) on her hands.
+The patient, during a well-child checkup, has [spitting up](symptom) and occasional [sore throat](symptom) but no fevers.
+Patient presents with Mom for first visit to the office for two-week well-child check. Patient has been experiencing [gas](symptom) and is being treated with Mylicon drops.
+Additionally, the patient has been [burping](symptom), [hiccuping](symptom), and [sneezing](symptom) appropriately.
+This 9-month-old Hispanic male has developed [bumps on his chest](symptom) that have been present for about a week. 
+He was previously diagnosed with left [otitis media](symptom) and has been treated with antibiotics. 
+The patient's mother reports [congestion](symptom) and occasional [sniffling](symptom) due to grass allergies.
+Additionally, he has [dry skin](symptom) on his face.
+This 12-year-old male has [congestion](symptom) and is [sniffling](symptom) due to grass allergies.
+He is also experiencing [dryness on his face](symptom) and is seeking advice on appropriate creams.
+This 45-year-old female patient reports no major concerns but mentions a family history of [brain tumor recurrence](symptom). She has [midchest pain](symptom) that occasionally radiates to her back, lasting about 15 to 20 minutes.
+She denies [nausea](symptom), [vomiting](symptom), [diaphoresis](symptom), or [shortness of breath](symptom) associated with the pain.
+The 68-year-old female patient complains of [midchest pain](symptom) that goes to her back, occurring at rest, occasionally waking her at night.
+The episodes last about 15 to 20 minutes. She denies [nausea](symptom), [vomiting](symptom), [diaphoresis](symptom), or [shortness of breath](symptom) with the pain.
+The pain has not occurred in almost two months. Additionally, she experiences significant pain in her [right hip](symptom) with weightbearing and movement.
+The 49-year-old male patient presents with [hyperesthesia](symptom) on his right abdomen, left abdomen, left medial thigh, and right lower abdomen.
+The patient complains of [numbness](symptom), [tingling](symptom), and [pain in the toes](symptom) of her right foot, with some paraesthesias in the left toe as well. 
+The patient also reports [bilateral shoulder pains](symptom) without sinus allergies, [hypothyroidism](symptom), [thrombocythemia](symptom), [insomnia](symptom), and [hypertension](symptom).
+The patient reports [backache](symptom), [stomachache](symptom), and [dysuria](symptom) for the last two days. She has also developed [fever](symptom) and [cough](symptom).
+The patient has a history of [kidney stones](symptom) and a previous [urinary tract infection](symptom).
+She experienced [back pain](symptom) starting last night.
+This 12-year-old young man complains of [sinus congestion](symptom) for about 10 days, with significant allergies, including ragweed. 
+He also experienced a [headache](symptom) yesterday.
+The patient, an 11-year-old female, has [congestion](symptom) and does a lot of [snorting](symptom) despite not having allergies, according to the allergist's evaluation.
+Additionally, she has [redness and erythema](symptom) on her right great toe, with peeling skin, persisting for about a week and a half.
+This 1-year-old male has been experiencing [cough](symptom) and [congestion](symptom) for the past two to three weeks. 
+His cough has worsened, but he is not running any [fevers](symptom). 
+His mother was concerned about him swallowing a pop can top, although his [breathing](symptom) has not worsened since the incident.
+The 2-year-old female in foster care has [stuffiness](symptom), [congestion](symptom), and [nasal drainage](symptom).
+She is on oxygen and has a history of prematurity, chronic lung disease, and a G-tube. Additionally, she has been experiencing [distension in the abdomen](symptom) and her diet has been fluctuating.
+The 76-year-old female patient has been stable in terms of her known medical issues, including [hypertension](symptom), [osteoarthritis](symptom), [osteoporosis](symptom), [hypothyroidism](symptom), [allergic rhinitis](symptom), and [kidney stones](symptom).
+She reports no new symptoms, such as [fever](symptom), [chills](symptom), [cough](symptom), [congestion](symptom), [nausea](symptom), [vomiting](symptom), [chest pain](symptom), or [chest pressure](symptom).
+The 54-year-old female patient is seeking dietary consultation for [weight reduction](symptom) secondary to diabetes.
+She has been following various diets, including the Atkins' diet and a veggie diet, but is concerned about the risk of severe [low blood sugar reactions](symptom).
+She also wonders if her diabetes will go away if she loses enough weight. Her primary concern is [morning high blood sugar](symptom) levels.
+The 56-year-old female patient is seeking dietary consultation for [hyperlipidemia](symptom), [hypertension](symptom), [gastroesophageal reflux disease](symptom), and [weight reduction](symptom). 
+The 38-year-old female patient with [gestational diabetes](symptom) reports being scared to eat due to its impact on her blood sugars.
+She works third shift at Wal-Mart and feels [fatigued](symptom) and [tired](symptom) all the time. 
+She is not sleeping well due to her work schedule and has concerns about her [blood sugar control](symptom). 
+She has also been testing for [ketones](symptom) first thing in the morning.
+She experienced [weight gain](symptom) and then reverted to her old South Beach Diet, which helped her lose some weight.
+The 79-year-old African-American female patient reports a history of [type 2 diabetes](symptom) since 1983.
+The patient brought in food diary sheets, indicating concerns about [weight](symptom) and possibly needing to lose more weight.
+The 28-year-old female patient, pregnant with diabetes, mentions her [gestational diabetes](symptom) history from her first pregnancy.
+The patient is counting calorie points and seeking information on [diabetic exchanges](symptom). 
+She has been attending Overeaters Anonymous and experiencing [weight loss](symptom). 
+The patient's brother has elevated cholesterol, leading the patient to improve his [diet](symptom) and engage in regular [exercise](symptom) to prepare for a triathlon.
+The 62-year-old female patient had [DKA](symptom) and is not feeling well due to a [cold](symptom). 
+She mentions [fatigue](symptom) but does not specify any other symptoms.
+The 60-year-old female patient complains of [coughing](symptom) during meals.
+She underwent a modified barium swallow study to assess her [swallowing function](symptom) and rule out aspiration. 
+The patient admitted for [shortness of breath](symptom) is doing fairly well but has been experiencing a [rapid heart rate](symptom) and [shortness of breath](symptom) while lying down.
+The patient with [COPD](symptom) and emphysema reports occasional [cough](symptom) and [sputum production](symptom). She denies [fever](symptom) or [chest pains](symptom).
+The patient with interstitial disease secondary to [lupus pneumonitis](symptom) experienced increasing [back and joint pain](symptom).
+She denies [cough](symptom) or [sputum production](symptom).
+The 78-year-old female patient with [essential hypertension](symptom) denies specific symptoms such as [chest pain](symptom), [palpations](symptom), [orthopnea](symptom), [nocturnal dyspnea](symptom), or [edema](symptom).
+The 97-year-old female patient admitted for [community acquired pneumonia](symptom) and [COPD exacerbation](symptom) fell and sustained injuries, including [anterior knee pain](symptom), [bruising](symptom), and [swelling](symptom).
+The patient on IV amiodarone post-aortic valve replacement reports [intermittent bursts of fast heart rate](symptom) at home and recent episodes of [prolonged rapid heart rate](symptom) for which she contacted EMS.
+The 42-year-old female patient reports worsening [asthma](symptom) symptoms, increased [irritability](symptom), and [PMS](symptom) around her menstrual cycle.
+She also notes [shorter menstrual cycles](symptom) and occasional [spotting](symptom) after her cycles. 
+She denies [hot flashes](symptom) or [night sweats](symptom) but does not specify specific symptoms related to her urinary tract infection history or recent lab work.
