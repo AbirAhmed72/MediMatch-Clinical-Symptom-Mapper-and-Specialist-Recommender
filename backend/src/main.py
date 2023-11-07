@@ -3,18 +3,19 @@ from datetime import datetime, time, timedelta
 from typing import List, Optional
 
 import joblib as jb
-import models
-import schemas
-import services
-from database import SessionLocal, engine
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
-from schemas import Symptoms, TokenData
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.expression import false
 from sqlalchemy.sql.sqltypes import Integer
+
+import models
+import schemas
+import services
+from database import SessionLocal, engine
+from schemas import Symptoms, TokenData
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -203,6 +204,11 @@ async def check_disease(symptoms: Symptoms):
     )
     return result
 
+@app.get("/get_symptoms/")
+async def extract_symptoms(patients_data: str):
+    
+    extracted_symptoms = services.get_symptoms(patients_data)
+    return extracted_symptoms
 
 @app.get("/approved_doctors", response_model=List[schemas.DoctorData])
 async def approved_doctors(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
@@ -257,25 +263,6 @@ async def doctor_signup(doctor_data: schemas.DoctorWithPassword, db: Session = D
         "status": "Doctor signup successful. Waiting for admin approval.",
         "info": response
     }
-
-# @app.post("/admin_signup", response_model=schemas.AdminData)
-# async def admin_signup(admin_data: schemas.AdminWithPassword, db: Session = Depends(get_db)):
-#     # Check if the admin email is already registered
-#     if services.get_admin_by_email(db, admin_data.email):
-#         raise HTTPException(status_code=400, detail="Email already registered")
-
-#     # Create a new admin user
-#     hashed_password = services.create_hashed_password(admin_data.password)
-#     admin = models.Admins(
-#         email=admin_data.email,
-#         password_hashed=hashed_password
-#     )
-#     db.add(admin)
-#     db.commit()
-#     db.refresh(admin)
-
-#     # Return the created admin user data
-#     return admin
 
 
 @app.get('/me')
