@@ -1,12 +1,14 @@
+import random
+from datetime import datetime, time, timedelta
 from typing import List, Optional
+
+from jose import JWTError, jwt  # JSON Web Token
+from passlib.hash import bcrypt
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.sqltypes import Integer
-import models, schemas
-from jose import JWTError, jwt #JSON Web Token
-from datetime import datetime, time, timedelta
-import random
-from passlib.hash import bcrypt
 
+import models
+import schemas
 
 SECRET_KEY = 'e2c6a3bc1aad22372e102e8f9f657bccd65676aef94587815b9d4d2c4960a650'
 ALGORITHM = "HS256"
@@ -23,8 +25,6 @@ def get_user_by_email(db: Session, email: str):
     print("Checking existing users")
     return db.query(models.UserBase).filter(models.UserBase.email == email).first()
 
-
-
 def get_user_by_id(db: Session, id: int):
     print("Checking existing users")
     return db.query(models.UserBase).filter(models.UserBase.id == id).first()
@@ -36,10 +36,8 @@ def is_doctor(db: Session, email: str):
         return False
     return True
 
-
 def has_appointment(db: Session, id: int):
     return db.query(models.Consultation).filter(models.Consultation.user_id == id).first()
-
 
 def get_doctor_by_specialization(db: Session, required_doctor: str):
     print(required_doctor)
@@ -67,11 +65,8 @@ def get_specialized_doctors_list(db: Session, doctor_specialization: str, skip: 
         )
     return specialized_doctors
 
-
 def get_doctor_by_email(db: Session, email: str):
     return db.query(models.Doctors).filter(models.Doctors.email == email).first()
-
-
 
 def get_doctor_by_id(db: Session, id: int):
     return db.query(models.Doctors).filter(models.Doctors.id == id).first()
@@ -129,6 +124,7 @@ def get_patients_for_doctor(db: Session, id: int, skip: int = 0, limit: int = 10
     return patients
 
 
+
 def get_admin_by_email(db:Session, email :str):
     return db.query(models.Admins).filter(models.Admins.email == email).first()
 
@@ -144,6 +140,7 @@ def add_doctor(db: Session, data: schemas.DoctorWithPassword):
     db.add(doctor_data)
     db.commit()
     return doctor_data
+
 
 
 def delete_appointment(db: Session, id: int):
@@ -175,5 +172,39 @@ def get_approved_doctors(db: Session, skip: int = 0, limit: int = 10) -> List[sc
         )
     return approved_doctors
 
+# detect symptoms
 
+def get_symptoms(data):
+    
+    import os
 
+    from transformers import AutoModelForTokenClassification, AutoTokenizer
+
+    #! without the following tow lines, it didn't work
+    #! Get the directory of the current script
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+
+    #! Change the working directory to the directory of the script
+    os.chdir(current_dir)
+
+    #! Define the relative path to your model
+    model_path = "../models/fine_tuned_model"
+
+    # Load the model
+    model = AutoModelForTokenClassification.from_pretrained(model_path)
+
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+    from transformers import pipeline
+
+    pipe = pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple") # pass device=0 if using gpu
+
+    predicted_text = pipe(data)
+    symptoms = []
+    for i in range(len(predicted_text)):
+        # print('Symptom: ', predicted_text[i]['word'], 'Score: ', predicted_text[i]['score'])
+        symptoms.append(predicted_text[i]['word'])
+        
+    return symptoms
+        
+    
