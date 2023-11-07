@@ -1,4 +1,4 @@
-She does have [shortness of breath](symptom) but denies any other significant symptoms.
+She does have [shortness of breath](symptom) but denies any other significant symptom.
 The patient is a 70-year-old man who had an episode of [loss of consciousness](symptom) today.
 He was feeling fine and then suddenly felt [lightheaded](symptom).
 After the episode, he felt [weak](symptom) for a few minutes but then returned to his baseline state.
@@ -14,7 +14,7 @@ He denies any heartburn, acid reflux, or chest pain. He has not experienced any 
 The patient is a 35-year-old female who comes in with a complaint of a persistent [headache](symptom).
 She reports a [dull, aching pain on the right side of her head](symptom) that has been bothering her for the past two weeks.
 She denies any [visual disturbances](symptom), [nausea](symptom), or [vomiting](symptom) associated with the headache.
-She reports occasional [sensitivity to light](symptom) but denies any other neurological symptoms.
+She reports occasional [sensitivity to light](symptom) but denies any other neurological symptom.
 The patient is a 28-year-old male who presents with a chief complaint of [lower back pain](symptom).
 He reports a sudden onset of [sharp, stabbing pain in his lower back](symptom) after lifting a heavy object at work.
 He reports [difficulty bending forward](symptom) and [standing upright](symptom).
@@ -34,7 +34,7 @@ The 47-year-old female patient is concerned about a possible [spider bite](sympt
 This 35-year-old male patient presents with complaints of [gross hematuria](symptom), [buttock and leg pain](symptom) (severe in the morning), and [sinus issues](symptom).
 A 28-year-old female returns for short-term follow-up, noting improved [blood sugars](symptom).
 She experiences [vague stomach problems](symptom), [mouth sores](symptom), and has concerns about denture.
-This 89-year-old lady returns for follow-up regarding [elevated blood pressure](symptom) and resolved [right arm symptoms](symptom).
+This 89-year-old lady returns for follow-up regarding [elevated blood pressure](symptom) and resolved [right arm symptom](symptom).
 She has concerns about [mouth sores](symptom), [Lexapro-related tremors](symptom), and swallowing large pills.
 The patient is feeling better after being admitted for [pneumonia](symptom) and [strep infection](symptom). 
 She had a [seizure](symptom) and an LP was performed. She returns due to [febrile seizure concerns](symptom) and is currently recovering from anesthesia.
@@ -45,7 +45,7 @@ This 86-year-old female experiences [shortness of breath on exertion](symptom), 
 She also reports [occasional mild chest pain](symptom).
 A 34-year-old male patient presents with a recurring [rash](symptom) due to poison ivy exposure.
 The rash appears on his [chest](symptom), [legs](symptom), [arms](symptom), and [back](symptom).
-This 78-year-old male patient reports [feeling sick](symptom) for a month, with symptoms including [yellow phlegm](symptom), [foot breakout](symptom), and a [wart on his finger](symptom). He also mentions difficulty quitting smoking.
+This 78-year-old male patient reports [feeling sick](symptom) for a month, with symptom including [yellow phlegm](symptom), [foot breakout](symptom), and a [wart on his finger](symptom). He also mentions difficulty quitting smoking.
 This 90-year-old female patient mentions [weakness in her legs](symptom), [difficulty walking](symptom), and [recent weight loss](symptom).
 She has concerns about [mouth soreness](symptom) and the need for Ensure.
 This 44-year-old male patient presents with [palpitations](symptom), [fluttering feeling in chest](symptom), [fatigue](symptom), [nervousness](symptom), and [anxiety](symptom) for the past two weeks.
@@ -58,7 +58,7 @@ The 62-year-old white female with multiple chronic problems complains of [left k
 She also experiences [sneezing](symptom), [itchy throat](symptom), [body aches](symptom), [awakening suddenly at night](symptom), and [weight gain](symptom).
 She reports a history of [snoring](symptom) and concerns about [sleep apnea](symptom).
 A patient reports [dizzy spells](symptom), [headaches](symptom), [neck pains](symptom), [generalized myalgias](symptom), [intermittent chest pains](symptom), [bruises on legs](symptom), and a [rash on the medial right calf](symptom).
-She also experiences [vertigo](symptom) and [lightheadedness](symptom) but does not have these symptoms presently.
+She also experiences [vertigo](symptom) and [lightheadedness](symptom) but does not have these symptom presently.
 The patient states feeling [sick](symptom) and [weak](symptom).
 The 66-year-old female patient complains of [right shoulder pain](symptom) with certain range of motion, without any injury.
 She also mentions [benign breast biopsy](symptom) done in the past and the need for a [repeat mammogram](symptom). 
@@ -76,20 +76,20 @@ The 97-year-old female patient with [community-acquired pneumonia](symptom) and 
 She complained of [weakness](symptom) and had [right anterior knee pain](symptom) with [bruising and swelling](symptom).
 The patient is still having [diarrhea](symptom), [decreased appetite](symptom), but has [good urine output](symptom).
 She remains [afebrile](symptom).
-The 78-year-old female patient with [essential hypertension](symptom) exhibits symptoms suggesting [intracranial pathology](symptom) but with negative work-up. 
+The 78-year-old female patient with [essential hypertension](symptom) exhibits symptom suggesting [intracranial pathology](symptom) but with negative work-up. 
 She is currently on [hydrochlorothiazide](symptom) and [K-Dur](symptom) with adequate control of her [blood pressure](symptom).
-She denies symptoms like [chest pain](symptom), [shortness of breath](symptom), [PND](symptom), [ankle swelling](symptom), or [dizziness](symptom).
-This 62-year-old female patient complains of [cold](symptom) symptoms after being hospitalized for [DKA](symptom) (Diabetic Ketoacidosis).
+She denies symptom like [chest pain](symptom), [shortness of breath](symptom), [PND](symptom), [ankle swelling](symptom), or [dizziness](symptom).
+This 62-year-old female patient complains of [cold](symptom) symptom after being hospitalized for [DKA](symptom) (Diabetic Ketoacidosis).
 She mentions [feeling unwell](symptom) due to her [weakened immune system](symptom).
 The patient is concerned about undergoing [cataract extraction](symptom) in both eyes due to [nervousness](symptom).
 She has a history of [neurovascular age-related macular degeneration](symptom) and has had [laser treatments](symptom) for it.
 The patient, post aortic valve replacement, reports [shortness of breath](symptom) with [exertion](symptom), [intermittent bursts of fast heart rate](symptom), and [prolonged episodes of fast heart rate](symptom) at home.
-The child displays symptoms of [obsessive-compulsive disorder](symptom), including [repetitive questioning](symptom), [obsession with cleanness](symptom), and [collecting old toys](symptom).
+The child displays symptom of [obsessive-compulsive disorder](symptom), including [repetitive questioning](symptom), [obsession with cleanness](symptom), and [collecting old toys](symptom).
 There is also a mention of [tremoring in both hands](symptom).
-The 75-year-old female patient presents with symptoms suggesting a possible [stroke](symptom), including [dizziness](symptom), [left hand numbness](symptom), and [left jaw numbness](symptom).
+The 75-year-old female patient presents with symptom suggesting a possible [stroke](symptom), including [dizziness](symptom), [left hand numbness](symptom), and [left jaw numbness](symptom).
 She also reports a recent [earache](symptom).
 The 49-year-old female patient has [acne](symptom) and complains of a [rash](symptom) on her [chest](symptom), [stomach](symptom), [neck](symptom), and [back](symptom).
-The 6-year-old male patient on [Adderall](symptom) for [ADHD](symptom) displays symptoms of [improved behavior](symptom) when on medication, but experiences [appetite loss in the morning](symptom) and behavioral issues in the [evening](symptom).
+The 6-year-old male patient on [Adderall](symptom) for [ADHD](symptom) displays symptom of [improved behavior](symptom) when on medication, but experiences [appetite loss in the morning](symptom) and behavioral issues in the [evening](symptom).
 The 9-month-old Hispanic male has developed [bumps on his chest](symptom) that have been present for about a week.
 He was previously diagnosed with [otitis media](symptom) and treated with antibiotics.
 The 12-year-old male patient reports [congestion](symptom) and [dry skin on the face](symptom) due to [grass allergies](symptom).
@@ -121,26 +121,26 @@ The 47-year-old female patient is concerned about a possible [spider bite](sympt
 She notices [tenderness and redness](symptom) on her left posterior shoulder, with red streaks extending up her neck.
 There is [minimal tenderness](symptom)  in the affected area.
 The 20-year-old male patient is admitted for evaluation of [hydrocarbon aspiration](symptom) after ingesting "tiki oil." He experiences [dyspnea](symptom), [pleuritic chest pain](symptom), [hemoptysis](symptom), [nausea](symptom), and [vomiting](symptom).
-Her platelet count fell to 10 on 01/09/07, leading to symptoms of [bruising](symptom) and [petechiae](symptom).
-This patient, a former drug addict, presents with symptoms of [depression](symptom), including persistent [sadness](symptom), [low energy](symptom), and [lack of enthusiasm](symptom).
+Her platelet count fell to 10 on 01/09/07, leading to symptom of [bruising](symptom) and [petechiae](symptom).
+This patient, a former drug addict, presents with symptom of [depression](symptom), including persistent [sadness](symptom), [low energy](symptom), and [lack of enthusiasm](symptom).
 He reports a history of [heroin addiction](symptom) and previous use of [methadone](symptom) to manage his addiction.
-He has been drug-free for about seven to eight days but continues to experience symptoms of [depression](symptom).
+He has been drug-free for about seven to eight days but continues to experience symptom of [depression](symptom).
 This patient presents with complaints of [sickness](symptom) lasting a month, worsening over the last couple of weeks, with [yellow phlegm](symptom) and [chest discomfort](symptom) when coughing.
 He also reports recurrent [foot breakouts](symptom) related to tinea pedis, [wart on the right middle finger](symptom), and [smoking relapse](symptom).
 The patient reports [gross hematuria](symptom) for the second time this month, [buttock and leg pain](symptom) following a recent fall, [sinus discomfort](symptom), and interest in [nasal saline spray](symptom).
 The patient complains of [sore mouth](symptom), [eye discomfort](symptom), [back pain](symptom), [right shoulder pain](symptom), [persistent cough](symptom), and recent [seizure](symptom) after being treated for pneumonia.
 The patient presents with [swelling in the left leg](symptom) for three years, worsening in the past two to three months, [shoulder and back pain](symptom), [frequent urination](symptom), [weight gain](symptom), and [shortness of breath](symptom).
 The patient, with an NG tube in place, reports [feeling a bit better](symptom).
-The 89-year-old patient presents with [elevated blood pressure](symptom), [resolved right arm symptoms](symptom), [stomach problems](symptom), [oral sores](symptom), and a perceived [body tremor](symptom).
+The 89-year-old patient presents with [elevated blood pressure](symptom), [resolved right arm symptom](symptom), [stomach problems](symptom), [oral sores](symptom), and a perceived [body tremor](symptom).
 The patient reports [palpitations](symptom), [fatigue](symptom), [anxiety](symptom), [loose stools](symptom) with [green color](symptom), [loss of appetite](symptom), and [nausea](symptom).
 The patient, a 62-year-old female, complains of [left knee pain](symptom) aggravated by kneeling, [rectal bleeding](symptom), [abdominal pain](symptom), [sneezing](symptom), [itchy throat](symptom), and [body aches](symptom).
-The 7-year-old male patient presents with a three-day history of [emesis](symptom) and a four-day history of [diarrhea](symptom). He had a fever of 103°F, [vomited after eating](symptom), and has been consuming [Pedialyte, Gatorade, white grape juice, and 7Up](symptoms) as he has not been eating anything.
+The 7-year-old male patient presents with a three-day history of [emesis](symptom) and a four-day history of [diarrhea](symptom). He had a fever of 103°F, [vomited after eating](symptom), and has been consuming [Pedialyte, Gatorade, white grape juice, and 7Up](symptom) as he has not been eating anything.
 The 3-year-old male is brought in due to concerns about his [eating habits](symptom). He is a particular eater, [vomiting after eating certain foods](symptom) such as raw carrots and celery.
 The patient complains of [headaches](symptom), [dizzy spells](symptom), [intermittent neck pains](symptom), [generalized myalgias](symptom), [bruises on legs](symptom), [chest pains](symptom), [nausea](symptom), [left shoulder tenderness](symptom), and [blood sugar level of 155 after lunch](symptom).
 The 66-year-old female patient reports [right shoulder pain](symptom), [elevated blood sugar levels](symptom), and the need for a [repeat mammogram](symptom).
 The patient feels [sick and weak](symptom).
-The patient, known to the healthcare provider, has made a decision to address his [health issues](symptom) related to [high blood pressure, diabetes, obesity](symptoms), and reports [allergic symptoms](symptom), [irritable bowel syndrome with cramping](symptom), and [rectal bleeding](symptom).
-The patient has [numbness, tingling, and moderate pain in toes](symptoms) of the right foot, [paraesthesias in the left toe](symptom), and [bilateral shoulder pains](symptom).
+The patient, known to the healthcare provider, has made a decision to address his [health issues](symptom) related to [high blood pressure, diabetes, obesity](symptom), and reports [allergic symptom](symptom), [irritable bowel syndrome with cramping](symptom), and [rectal bleeding](symptom).
+The patient has [numbness, tingling, and moderate pain in toes](symptom) of the right foot, [paraesthesias in the left toe](symptom), and [bilateral shoulder pains](symptom).
 The patient complains of [backache](symptom), [stomachache](symptom), [dysuria](symptom), [fever](symptom), and [cough](symptom).
 The 2-year-old girl is brought in with [stuffiness](symptom), [congestion](symptom), and [nasal drainage](symptom). 
 The 12-year-old boy presents with [sinus congestion](symptom), [clear drainage](symptom), [headache](symptom), and no fever.
@@ -148,7 +148,7 @@ The patient is brought in for possible [ear infection](symptom) with [left ear p
 This 2-year-old female patient presents with [weight loss](symptom), [breathing difficulties](symptom), and [dietary concerns](symptom). She has a history of prematurity, chronic lung disease, and gastrointestinal issues including [abdominal distension](symptom) and [constipation](symptom).
 An 11-year-old female complains of [nasal congestion](symptom) and [snorting](symptom) despite discontinuing Allegra. Additionally, she has [redness](symptom), [erythema](symptom), and [peeling skin](symptom) on her right great toe.
 A 1-year-old male has been experiencing [cough](symptom) and [congestion](symptom) for the past few weeks, with worsening cough and concerns about [ingestion of a foreign object](symptom). No fever is reported.
-This 42-year-old female patient reports worsening [asthma symptoms](symptom) over the last three months. She experiences [irritability](symptom) and [PMS symptoms](symptom) related to her menstrual cycle.
+This 42-year-old female patient reports worsening [asthma symptom](symptom) over the last three months. She experiences [irritability](symptom) and [PMS symptom](symptom) related to her menstrual cycle.
 She has also noticed [vaginal irritation](symptom) from previous medication. Menstrual irregularities include [shortened cycles](symptom) and [postmenstrual spotting](symptom).
 A child complains of [headaches](symptom), [pressure in the face](symptom), [sore throat](symptom), [cough](symptom), and a [rash](symptom) on the face, back, and arms. The rash is itchy and has been treated with Benadryl.
 A 46-year-old male with Down's syndrome is being followed up for [hypothyroidism](symptom) and [onychomycosis](symptom).
@@ -220,7 +220,7 @@ His mother was concerned about him swallowing a pop can top, although his [breat
 The 2-year-old female in foster care has [stuffiness](symptom), [congestion](symptom), and [nasal drainage](symptom).
 She is on oxygen and has a history of prematurity, chronic lung disease, and a G-tube. Additionally, she has been experiencing [distension in the abdomen](symptom) and her diet has been fluctuating.
 The 76-year-old female patient has been stable in terms of her known medical issues, including [hypertension](symptom), [osteoarthritis](symptom), [osteoporosis](symptom), [hypothyroidism](symptom), [allergic rhinitis](symptom), and [kidney stones](symptom).
-She reports no new symptoms, such as [fever](symptom), [chills](symptom), [cough](symptom), [congestion](symptom), [nausea](symptom), [vomiting](symptom), [chest pain](symptom), or [chest pressure](symptom).
+She reports no new symptom, such as [fever](symptom), [chills](symptom), [cough](symptom), [congestion](symptom), [nausea](symptom), [vomiting](symptom), [chest pain](symptom), or [chest pressure](symptom).
 The 54-year-old female patient is seeking dietary consultation for [weight reduction](symptom) secondary to diabetes.
 She has been following various diets, including the Atkins' diet and a veggie diet, but is concerned about the risk of severe [low blood sugar reactions](symptom).
 She also wonders if her diabetes will go away if she loses enough weight. Her primary concern is [morning high blood sugar](symptom) levels.
@@ -237,16 +237,39 @@ The patient is counting calorie points and seeking information on [diabetic exch
 She has been attending Overeaters Anonymous and experiencing [weight loss](symptom). 
 The patient's brother has elevated cholesterol, leading the patient to improve his [diet](symptom) and engage in regular [exercise](symptom) to prepare for a triathlon.
 The 62-year-old female patient had [DKA](symptom) and is not feeling well due to a [cold](symptom). 
-She mentions [fatigue](symptom) but does not specify any other symptoms.
+She mentions [fatigue](symptom) but does not specify any other symptom.
 The 60-year-old female patient complains of [coughing](symptom) during meals.
 She underwent a modified barium swallow study to assess her [swallowing function](symptom) and rule out aspiration. 
 The patient admitted for [shortness of breath](symptom) is doing fairly well but has been experiencing a [rapid heart rate](symptom) and [shortness of breath](symptom) while lying down.
 The patient with [COPD](symptom) and emphysema reports occasional [cough](symptom) and [sputum production](symptom). She denies [fever](symptom) or [chest pains](symptom).
 The patient with interstitial disease secondary to [lupus pneumonitis](symptom) experienced increasing [back and joint pain](symptom).
 She denies [cough](symptom) or [sputum production](symptom).
-The 78-year-old female patient with [essential hypertension](symptom) denies specific symptoms such as [chest pain](symptom), [palpations](symptom), [orthopnea](symptom), [nocturnal dyspnea](symptom), or [edema](symptom).
+The 78-year-old female patient with [essential hypertension](symptom) denies specific symptom such as [chest pain](symptom), [palpations](symptom), [orthopnea](symptom), [nocturnal dyspnea](symptom), or [edema](symptom).
 The 97-year-old female patient admitted for [community acquired pneumonia](symptom) and [COPD exacerbation](symptom) fell and sustained injuries, including [anterior knee pain](symptom), [bruising](symptom), and [swelling](symptom).
 The patient on IV amiodarone post-aortic valve replacement reports [intermittent bursts of fast heart rate](symptom) at home and recent episodes of [prolonged rapid heart rate](symptom) for which she contacted EMS.
-The 42-year-old female patient reports worsening [asthma](symptom) symptoms, increased [irritability](symptom), and [PMS](symptom) around her menstrual cycle.
+The 42-year-old female patient reports worsening [asthma](symptom) symptom, increased [irritability](symptom), and [PMS](symptom) around her menstrual cycle.
 She also notes [shorter menstrual cycles](symptom) and occasional [spotting](symptom) after her cycles. 
-She denies [hot flashes](symptom) or [night sweats](symptom) but does not specify specific symptoms related to her urinary tract infection history or recent lab work.
+She denies [hot flashes](symptom) or [night sweats](symptom) but does not specify specific symptom related to her urinary tract infection history or recent lab work.
+I've been feeling really unwell lately. It started a few days ago with a [persistent headache](symptom) that just won't go away. 
+I've also noticed a [high fever](symptom), which has been keeping me up at night. 
+My throat feels sore, and I've been [coughing](symptom) a lot. 
+I've lost my appetite, and I feel [weak and fatigued](symptom) all the time. 
+In addition to all of this, I've been experiencing [nausea](symptom) and occasional [vomiting](symptom). 
+For the past week, I've had [chest pain](symptom) that seems to radiate to my left arm. 
+I've also experienced [shortness of breath](symptom) and an [irregular heartbeat](symptom) at times. 
+I've been having [persistent abdominal pain](symptom) for a while now, along with [frequent diarrhea](symptom). 
+I also noticed [blood in my stool](symptom) a couple of times.
+Lately, I've been dealing with [severe joint pain](symptom), especially in my knees and wrists. 
+I've also noticed [swelling and redness](symptom) around the affected joints.
+I've had a [constant runny nose](symptom) for the past few days, along with [sneezing](symptom) and [watery eyes](symptom). 
+Over the last month, I've been experiencing [hair loss](symptom) at an alarming rate.
+Lately, I've been experiencing [persistent fatigue](symptom) that doesn't seem to improve with rest. It's been affecting my daily activities.
+I've had [persistent back pain](symptom) for several weeks now, and it's becoming increasingly difficult to find a comfortable position to sit or sleep.
+Over the past few days, I've been noticing [swelling and tenderness](symptom) in my ankles, and it's quite painful.
+I've been having [frequent headaches](symptom), and they often come with [nausea and sensitivity to light](symptom). It's really disruptive.
+Recently, I've been experiencing [vision problems](symptom), such as blurriness and difficulty focusing on objects.
+I've been feeling [anxious and restless](symptom) most nights, making it hard to fall asleep or stay asleep.
+I've developed [skin rashes](symptom) on my arms and legs, and they're itchy and uncomfortable.
+For the past week, I've been struggling with [dizziness and lightheadedness](symptom), especially when I stand up quickly.
+I've noticed [frequent urination](symptom) during the day and even at night. It's becoming quite bothersome.
+I've been having [digestive issues](symptom) like [constipation](symptom) and [bloating](symptom) after meals, and it's been affecting my appetite.
