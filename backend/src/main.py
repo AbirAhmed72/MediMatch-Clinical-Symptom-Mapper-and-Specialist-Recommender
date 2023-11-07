@@ -297,361 +297,361 @@ async def get_current_user_info(token: str = Depends(oauth2_scheme), db: Session
     }
 
 
-@app.post('/patient/appointment/add', tags=["Patient"])
-async def make_appointment(data: schemas.ConsultationData, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.post('/patient/appointment/add', tags=["Patient"])
+# async def make_appointment(data: schemas.ConsultationData, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    if data.appointment_datetime is None:
-        raise HTTPException(
-            status_code=400, detail="Appointment datetime is required.")
+#     if data.appointment_datetime is None:
+#         raise HTTPException(
+#             status_code=400, detail="Appointment datetime is required.")
 
-    if data.required_doctor is None:
-        raise HTTPException(
-            status_code=400, detail="Required doctor specialization is required.")
+#     if data.required_doctor is None:
+#         raise HTTPException(
+#             status_code=400, detail="Required doctor specialization is required.")
 
-    user = services.get_user_by_email(db, email=token_data.username)
-    if user is None:
-        raise credentials_exception
+#     user = services.get_user_by_email(db, email=token_data.username)
+#     if user is None:
+#         raise credentials_exception
 
-    if services.has_appointment(db, user.id):
-        raise HTTPException(
-            status_code=400, detail="User already has an appointment")
+#     if services.has_appointment(db, user.id):
+#         raise HTTPException(
+#             status_code=400, detail="User already has an appointment")
 
-    doctors = services.get_specialized_doctors_list(db, data.required_doctor)
-    approved_doctors = [doctor for doctor in doctors if doctor.approval]
+#     doctors = services.get_specialized_doctors_list(db, data.required_doctor)
+#     approved_doctors = [doctor for doctor in doctors if doctor.approval]
 
-    if not approved_doctors:
-        raise HTTPException(
-            status_code=500, detail="No approved doctors available")
+#     if not approved_doctors:
+#         raise HTTPException(
+#             status_code=500, detail="No approved doctors available")
 
-    doctor = random.choice(approved_doctors)
-    doctor_id = doctor.id
+#     doctor = random.choice(approved_doctors)
+#     doctor_id = doctor.id
 
-    appointment = services.make_appointment(db, user.id, doctor_id, data)
-    return {
-        "appointment": appointment,
-        "doctor": services.get_doctor_by_id(db, appointment.doctor_id).name
-    }
+#     appointment = services.make_appointment(db, user.id, doctor_id, data)
+#     return {
+#         "appointment": appointment,
+#         "doctor": services.get_doctor_by_id(db, appointment.doctor_id).name
+#     }
 
 
-@app.get('/patient/appointment/show', tags=["Patient"])
-async def show_my_appointment(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+# @app.get('/patient/appointment/show', tags=["Patient"])
+# async def show_my_appointment(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    user = services.get_user_by_email(db, email=token_data.username)
-    if user is None:
-        raise credentials_exception
+#     user = services.get_user_by_email(db, email=token_data.username)
+#     if user is None:
+#         raise credentials_exception
 
-    appointment = services.get_appointment_by_user_id(db, user.id)
-    if appointment is None:
-        return {"message": "You got no appointments"}
+#     appointment = services.get_appointment_by_user_id(db, user.id)
+#     if appointment is None:
+#         return {"message": "You got no appointments"}
 
-    return appointment
+#     return appointment
 
 
-@app.delete('/patient/appointment/delete', tags=["Patient"])
-async def delete_appointment(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.delete('/patient/appointment/delete', tags=["Patient"])
+# async def delete_appointment(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    user = services.get_user_by_email(db, email=token_data.username)
-    if user is None:
-        raise credentials_exception
+#     user = services.get_user_by_email(db, email=token_data.username)
+#     if user is None:
+#         raise credentials_exception
 
-    appointment = services.get_appointment_by_user_id(db, user.id)
-    if appointment is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Appointment not found"
-        )
+#     appointment = services.get_appointment_by_user_id(db, user.id)
+#     if appointment is None:
+#         raise HTTPException(
+#             status_code=404,
+#             detail="Appointment not found"
+#         )
 
-    # Check if the authenticated user is the owner of the appointment
-    if appointment.user_id != user.id:
-        raise HTTPException(
-            status_code=403,
-            detail="You do not have permission to delete this appointment"
-        )
+#     # Check if the authenticated user is the owner of the appointment
+#     if appointment.user_id != user.id:
+#         raise HTTPException(
+#             status_code=403,
+#             detail="You do not have permission to delete this appointment"
+#         )
 
-    status = services.delete_appointment(db, appointment.appointment_id)
-    if status:
-        return {
-            "status": "Appointment deleted successfully!"
-        }
+#     status = services.delete_appointment(db, appointment.appointment_id)
+#     if status:
+#         return {
+#             "status": "Appointment deleted successfully!"
+#         }
 
-    raise HTTPException(
-        status_code=500,
-        detail="Failed to delete the appointment"
-    )
+#     raise HTTPException(
+#         status_code=500,
+#         detail="Failed to delete the appointment"
+#     )
 
 
-@app.get('/doctor/show_patients', response_model=List[schemas.ConsultationResponse], tags=["Doctor"])
-async def show_appointments(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+# @app.get('/doctor/show_patients', response_model=List[schemas.ConsultationResponse], tags=["Doctor"])
+# async def show_appointments(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    doctor = services.get_doctor_by_email(db, email=token_data.username)
-    if doctor is None:
-        raise credentials_exception
+#     doctor = services.get_doctor_by_email(db, email=token_data.username)
+#     if doctor is None:
+#         raise credentials_exception
 
-    patients = services.get_patients_for_doctor(
-        db, doctor.id, skip=skip, limit=limit)
-    patients_who_made_appointment = [
-        patient for patient in patients if patient is not None]
+#     patients = services.get_patients_for_doctor(
+#         db, doctor.id, skip=skip, limit=limit)
+#     patients_who_made_appointment = [
+#         patient for patient in patients if patient is not None]
 
-    return patients_who_made_appointment
+#     return patients_who_made_appointment
 
 
-@app.put('/doctor/{appointment_id}/status', tags=["Doctor"])
-async def change_appointment_status(appointment_id: int, status: bool, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.put('/doctor/{appointment_id}/status', tags=["Doctor"])
+# async def change_appointment_status(appointment_id: int, status: bool, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    doctor = services.get_doctor_by_email(db, email=token_data.username)
-    if doctor is None:
-        raise credentials_exception
+#     doctor = services.get_doctor_by_email(db, email=token_data.username)
+#     if doctor is None:
+#         raise credentials_exception
 
-    appointment = services.get_appointment(db, appointment_id)
-    if appointment is None:
-        raise HTTPException(status_code=404, detail="Appointment not found")
+#     appointment = services.get_appointment(db, appointment_id)
+#     if appointment is None:
+#         raise HTTPException(status_code=404, detail="Appointment not found")
 
-    if appointment.doctor_id != doctor.id:
-        raise HTTPException(
-            status_code=403, detail="You are not authorized to change the status of this appointment")
+#     if appointment.doctor_id != doctor.id:
+#         raise HTTPException(
+#             status_code=403, detail="You are not authorized to change the status of this appointment")
 
-    appointment.status = status
-    db.commit()
-    db.refresh(appointment)
+#     appointment.status = status
+#     db.commit()
+#     db.refresh(appointment)
 
-    return {"message": f"Appointment status updated to {status} successfully",
-            "appointment": appointment}
+#     return {"message": f"Appointment status updated to {status} successfully",
+#             "appointment": appointment}
 
 
-@app.put("/admin/approve_doctor/{doctor_email}", tags=["Admin"])
-async def approve_doctor(doctor_email: str, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.put("/admin/approve_doctor/{doctor_email}", tags=["Admin"])
+# async def approve_doctor(doctor_email: str, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    # Get the doctor from the database
-    doctor = services.get_doctor_by_email(db, doctor_email)
+#     # Get the doctor from the database
+#     doctor = services.get_doctor_by_email(db, doctor_email)
 
-    # Check if the doctor exists
-    if not doctor:
-        raise HTTPException(status_code=404, detail="Doctor not found")
+#     # Check if the doctor exists
+#     if not doctor:
+#         raise HTTPException(status_code=404, detail="Doctor not found")
 
-    if doctor.is_approved == True:
-        raise HTTPException(
-            status_code=400, detail="Doctor is already approved")
+#     if doctor.is_approved == True:
+#         raise HTTPException(
+#             status_code=400, detail="Doctor is already approved")
 
-    # Update the doctor's approval status
-    doctor.is_approved = True
-    db.commit()
+#     # Update the doctor's approval status
+#     doctor.is_approved = True
+#     db.commit()
 
-    # Return the updated doctor data
-    return {"message": "Doctor approved successfully"}
+#     # Return the updated doctor data
+#     return {"message": "Doctor approved successfully"}
 
 
-@app.get('/admin/patients', tags=["Admin"])
-def get_all_patients(skip: int = 0, limit: int = 100, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.get('/admin/patients', tags=["Admin"])
+# def get_all_patients(skip: int = 0, limit: int = 100, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     token_data = verify_user(token)
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    patients = db.query(models.UserBase).offset(skip).limit(limit).all()
-    return {"patients": patients}
+#     patients = db.query(models.UserBase).offset(skip).limit(limit).all()
+#     return {"patients": patients}
 
 
-@app.delete('/admin/patients/{patient_id}', tags=["Admin"])
-def delete_patient(patient_id: int, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.delete('/admin/patients/{patient_id}', tags=["Admin"])
+# def delete_patient(patient_id: int, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    patient = db.query(models.UserBase).filter(
-        models.UserBase.id == patient_id).first()
-    if not patient:
-        raise HTTPException(status_code=404, detail="Patient not found")
+#     patient = db.query(models.UserBase).filter(
+#         models.UserBase.id == patient_id).first()
+#     if not patient:
+#         raise HTTPException(status_code=404, detail="Patient not found")
 
-    db.delete(patient)
-    db.commit()
+#     db.delete(patient)
+#     db.commit()
 
-    return {"message": f"Patient {patient.id} deleted successfully"}
+#     return {"message": f"Patient {patient.id} deleted successfully"}
 
 
-@app.get('/admin/doctors', tags=["Admin"])
-def get_all_doctors(skip: int = 0, limit: int = 100, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.get('/admin/doctors', tags=["Admin"])
+# def get_all_doctors(skip: int = 0, limit: int = 100, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     token_data = verify_user(token)
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    doctors = db.query(models.Doctors).offset(skip).limit(limit).all()
-    return {"doctors": doctors}
+#     doctors = db.query(models.Doctors).offset(skip).limit(limit).all()
+#     return {"doctors": doctors}
 
 
-@app.delete('/admin/doctors/{doctor_id}', tags=["Admin"])
-def delete_doctor(doctor_id: int, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.delete('/admin/doctors/{doctor_id}', tags=["Admin"])
+# def delete_doctor(doctor_id: int, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    doctor = db.query(models.Doctors).filter(
-        models.Doctors.id == doctor_id).first()
-    if not doctor:
-        raise HTTPException(status_code=404, detail="Doctor not found")
+#     doctor = db.query(models.Doctors).filter(
+#         models.Doctors.id == doctor_id).first()
+#     if not doctor:
+#         raise HTTPException(status_code=404, detail="Doctor not found")
 
-    db.delete(doctor)
-    db.commit()
+#     db.delete(doctor)
+#     db.commit()
 
-    return {f"message": "Doctor {doctor.id} deleted successfully"}
+#     return {f"message": "Doctor {doctor.id} deleted successfully"}
 
 
-@app.get('/admin/complaints', tags=["Admin"])
-def get_all_complaints(skip: int = 0, limit: int = 100, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.get('/admin/complaints', tags=["Admin"])
+# def get_all_complaints(skip: int = 0, limit: int = 100, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     token_data = verify_user(token)
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    complaints = db.query(models.Complaints).offset(skip).limit(limit).all()
-    return {"complaints": complaints}
+#     complaints = db.query(models.Complaints).offset(skip).limit(limit).all()
+#     return {"complaints": complaints}
 
 
-@app.delete('/admin/complaints/{complaint_id}', tags=["Admin"])
-def delete_complaint(complaint_id: int, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.delete('/admin/complaints/{complaint_id}', tags=["Admin"])
+# def delete_complaint(complaint_id: int, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    complaint = db.query(models.Complaints).filter(
-        models.Complaints.id == complaint_id).first()
-    if not complaint:
-        raise HTTPException(status_code=404, detail="Complaint not found")
+#     complaint = db.query(models.Complaints).filter(
+#         models.Complaints.id == complaint_id).first()
+#     if not complaint:
+#         raise HTTPException(status_code=404, detail="Complaint not found")
 
-    db.delete(complaint)
-    db.commit()
+#     db.delete(complaint)
+#     db.commit()
 
-    return {"message": f"Complaint {complaint.id} deleted successfully"}
+#     return {"message": f"Complaint {complaint.id} deleted successfully"}
 
 
-# Endpoint for admin to provide feedback on a complaint
-@app.put('/admin/complaints/{complaint_id}/feedback', tags=["Admin"])
-def provide_feedback(complaint_id: int, feedback: schemas.Feedback, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# # Endpoint for admin to provide feedback on a complaint
+# @app.put('/admin/complaints/{complaint_id}/feedback', tags=["Admin"])
+# def provide_feedback(complaint_id: int, feedback: schemas.Feedback, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    admin = services.get_admin_by_email(db, token_data.username)
-    if not admin:
-        raise credentials_exception
+#     admin = services.get_admin_by_email(db, token_data.username)
+#     if not admin:
+#         raise credentials_exception
 
-    # Retrieve the complaint by ID
-    complaint = db.query(models.Complaints).filter(
-        models.Complaints.id == complaint_id).first()
-    if not complaint:
-        raise HTTPException(status_code=404, detail="Complaint not found")
+#     # Retrieve the complaint by ID
+#     complaint = db.query(models.Complaints).filter(
+#         models.Complaints.id == complaint_id).first()
+#     if not complaint:
+#         raise HTTPException(status_code=404, detail="Complaint not found")
 
-    # Update the complaint with the provided feedback
-    complaint.feedback_text = feedback.feedback_text
-    db.commit()
+#     # Update the complaint with the provided feedback
+#     complaint.feedback_text = feedback.feedback_text
+#     db.commit()
 
-    return {"message": "Feedback provided successfully"}
+#     return {"message": "Feedback provided successfully"}
 
 
-# Endpoint for submitting a complaint
-@app.post('/user/complaints', tags=["Users"])
-def submit_complaint(complaint: schemas.ComplaintBase, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
-    # Create a new complaint entry in the database
+# # Endpoint for submitting a complaint
+# @app.post('/user/complaints', tags=["Users"])
+# def submit_complaint(complaint: schemas.ComplaintBase, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+#     # Create a new complaint entry in the database
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    # Check if the user already has a complaint
-    existing_complaint = db.query(models.Complaints).filter(
-        models.Complaints.user_email == token_data.username).first()
-    if existing_complaint:
-        raise HTTPException(
-            status_code=400, detail=f"You already have a complaint of id {existing_complaint.id}")
+#     # Check if the user already has a complaint
+#     existing_complaint = db.query(models.Complaints).filter(
+#         models.Complaints.user_email == token_data.username).first()
+#     if existing_complaint:
+#         raise HTTPException(
+#             status_code=400, detail=f"You already have a complaint of id {existing_complaint.id}")
 
-    new_complaint = models.Complaints(
-        user_email=token_data.username,
-        complaint_text=complaint.complaint_text,
-        feedback_text=None  # Initialize feedback as None
-    )
-    db.add(new_complaint)
-    db.commit()
-    db.refresh(new_complaint)
-    return {"message": "Complaint submitted successfully", "complaint_id": new_complaint.id}
+#     new_complaint = models.Complaints(
+#         user_email=token_data.username,
+#         complaint_text=complaint.complaint_text,
+#         feedback_text=None  # Initialize feedback as None
+#     )
+#     db.add(new_complaint)
+#     db.commit()
+#     db.refresh(new_complaint)
+#     return {"message": "Complaint submitted successfully", "complaint_id": new_complaint.id}
 
 
-# Endpoint to retrieve a specific complaint by the user
-@app.get('/user/complaints', tags=["Users"])
-def get_complaint(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# # Endpoint to retrieve a specific complaint by the user
+# @app.get('/user/complaints', tags=["Users"])
+# def get_complaint(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    # Retrieve the complaint by user email
-    complaint = db.query(models.Complaints).filter(
-        models.Complaints.user_email == token_data.username).first()
-    if not complaint:
-        raise HTTPException(status_code=404, detail="Complaint not found")
+#     # Retrieve the complaint by user email
+#     complaint = db.query(models.Complaints).filter(
+#         models.Complaints.user_email == token_data.username).first()
+#     if not complaint:
+#         raise HTTPException(status_code=404, detail="Complaint not found")
 
-    return {"complaint": complaint}
+#     return {"complaint": complaint}
 
 
-@app.put('/user/complaints', tags=["Users"])
-def update_complaint(complaint_update: schemas.ComplaintUpdate, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.put('/user/complaints', tags=["Users"])
+# def update_complaint(complaint_update: schemas.ComplaintUpdate, token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    # Retrieve the complaint by user email
-    complaint = db.query(models.Complaints).filter(
-        models.Complaints.user_email == token_data.username).first()
-    if not complaint:
-        raise HTTPException(status_code=404, detail="Complaint not found")
+#     # Retrieve the complaint by user email
+#     complaint = db.query(models.Complaints).filter(
+#         models.Complaints.user_email == token_data.username).first()
+#     if not complaint:
+#         raise HTTPException(status_code=404, detail="Complaint not found")
 
-    if complaint.feedback_text:
-        raise HTTPException(
-            status_code=400, detail=f"You already have a feedback for this complaint which is: {complaint.feedback_text}")
+#     if complaint.feedback_text:
+#         raise HTTPException(
+#             status_code=400, detail=f"You already have a feedback for this complaint which is: {complaint.feedback_text}")
 
-    # Update the complaint text
-    complaint.complaint_text = complaint_update.complaint_text
-    db.commit()
+#     # Update the complaint text
+#     complaint.complaint_text = complaint_update.complaint_text
+#     db.commit()
 
-    return {"message": "Complaint updated successfully"}
+#     return {"message": "Complaint updated successfully"}
 
-# Endpoint for user to delete their own complaint
+# # Endpoint for user to delete their own complaint
 
 
-@app.delete('/user/complaints', tags=["Users"])
-def delete_complaint(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+# @app.delete('/user/complaints', tags=["Users"])
+# def delete_complaint(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
-    token_data = verify_user(token)
+#     token_data = verify_user(token)
 
-    # Retrieve the complaint by user email
-    complaint = db.query(models.Complaints).filter(
-        models.Complaints.user_email == token_data.username).first()
-    if not complaint:
-        raise HTTPException(status_code=404, detail="Complaint not found")
+#     # Retrieve the complaint by user email
+#     complaint = db.query(models.Complaints).filter(
+#         models.Complaints.user_email == token_data.username).first()
+#     if not complaint:
+#         raise HTTPException(status_code=404, detail="Complaint not found")
 
-    # Delete the complaint
-    db.delete(complaint)
-    db.commit()
+#     # Delete the complaint
+#     db.delete(complaint)
+#     db.commit()
 
-    return {"message": "Complaint deleted successfully"}
+#     return {"message": "Complaint deleted successfully"}
