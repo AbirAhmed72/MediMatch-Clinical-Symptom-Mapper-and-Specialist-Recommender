@@ -44,6 +44,10 @@ class ConsultationData(Symptoms):
     required_doctor: str
     predicted_disease: str
     appointment_datetime: datetime
+
+class PredictionData(Symptoms):
+    required_doctor: str
+    predicted_disease: str
     
 
 class ConsultationResponse(BaseModel):
