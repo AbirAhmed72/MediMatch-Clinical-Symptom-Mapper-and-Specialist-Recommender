@@ -1,27 +1,97 @@
-# React + TypeScript + Vite
+# API Endpoints for Parsing symptom using NLP and predicting disease from those symptoms.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## POST /token:
 
-Currently, two official plugins are available:
+Authenticate and retrieve an access token.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## POST /check_disease:
 
-## Expanding the ESLint configuration
+Check a disease based on perceived symptoms.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## GET /approved_doctors:
 
-- Configure the top-level `parserOptions` property like this:
+Retrieve a list of approved doctors.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## GET /specialized_doctors/{doctor_specialization}:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Get doctors by specialization.
+
+## POST /patient_signup:
+
+Sign up a patient user.
+
+## POST /doctor_signup:
+
+Sign up a doctor user and wait for admin approval.
+
+## GET /me:
+
+Retrieve user or doctor information.
+
+## POST /patient/appointment/add:
+
+Schedule an appointment with a doctor.
+
+## GET /patient/appointment/show:
+
+View your scheduled appointments.
+
+## DELETE /patient/appointment/delete:
+
+Cancel your appointment.
+
+## GET /doctor/show_patients:
+
+View patients who have appointments with you.
+
+## PUT /doctor/{appointment_id}/status:
+
+Change appointment status as a doctor.
+
+## PUT /admin/approve_doctor/{doctor_email}:
+
+Approve a doctor as an admin.
+
+## GET /admin/patients:
+
+Retrieve a list of all patients as an admin.
+
+## DELETE /admin/patients/{patient_id}:
+
+Delete a patient as an admin.
+
+## GET /admin/doctors:
+
+Retrieve a list of all doctors as an admin.
+
+## DELETE /admin/doctors/{doctor_id}:
+
+Delete a doctor as an admin.
+
+## GET /admin/complaints:
+
+Retrieve a list of user complaints as an admin.
+
+## DELETE /admin/complaints/{complaint_id}:
+
+Delete a user's complaint as an admin.
+
+## PUT /admin/complaints/{complaint_id}/feedback:
+
+Provide feedback on a user's complaint as an admin.
+
+## POST /user/complaints:
+
+Submit a complaint as a user.
+
+## GET /user/complaints:
+
+Retrieve a specific user's complaint.
+
+## PUT /user/complaints:
+
+Update a user's complaint.
+
+## DELETE /user/complaints:
+
+Delete a user's complaint.
