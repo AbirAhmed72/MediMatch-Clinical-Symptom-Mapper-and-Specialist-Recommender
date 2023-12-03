@@ -19,19 +19,52 @@ export default function Signup(): JSX.Element {
       [name]: value,
     });
   };
-
-  const handleSubmit = (e: FormEvent) => {
+  
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted with data:', formData);
-    // Add your form submission logic here
+    // Extract relevant data from the form data
+    const { name, email, password } = formData;
+    // Prepare the data object to be sent in the request
+    const requestData = {
+      name,
+      email,
+      password,
+    };
+  
+    try {
+      // Send a POST request to the FastAPI endpoint
+      const response = await fetch('http://0.0.0.0/patient_signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+  
+      // Check if the request was successful (status code 2xx)
+      if (response.ok) {
+        console.log('User signed up successfully');
+        // Save user details in localStorage or sessionStorage
+        const responseData = await response.json();
+        localStorage.setItem('user', JSON.stringify(responseData));
+        // redirect to sign in page
+        window.location.href = '/signin';
+      } else {
+        // Handle errors or display error messages
+        console.error('Error signing up:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error sending request:', error);
+    }
   };
+  
 
 
   return (
     <section className="h-full bg-neutral-200 dark:bg-neutral-700">
       <Navbar />
 
-      <div className="container h-full p-10">
+      <div className="flex items-center space-x-4 md:pl-4 md:justify-center md:flex-1 pt-10 pb-10">
         <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
           <div className="w-auto">
             <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">

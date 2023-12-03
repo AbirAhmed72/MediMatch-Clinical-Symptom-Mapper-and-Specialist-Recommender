@@ -19,10 +19,46 @@ export default function Signin(): JSX.Element {
     });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted with data:', formData);
+
+    const { username, password } = formData;
+
+    // Set up the request body parameters
+    const requestBody = new URLSearchParams();
+    requestBody.append('grant_type', 'password');
+    requestBody.append('username', username);
+    requestBody.append('password', password);
+    requestBody.append('scope', 'your_scope'); // Replace 'your_scope' with the actual scope
+    requestBody.append('client_id', 'your_client_id'); // Replace 'your_client_id' with the actual client ID
+    requestBody.append('client_secret', 'your_client_secret'); // Replace 'your_client_secret' with the actual client secret
+
+    try {
+      // Send a POST request to the FastAPI token endpoint
+      const response = await fetch('http://0.0.0.0/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: requestBody.toString(),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        // Save user details in localStorage or sessionStorage
+        localStorage.setItem('session', JSON.stringify(responseData));
+        console.log('User logged in successfully', localStorage.session);
+
+        // redirect to home page
+        window.location.href = '/home';
+      } else {
+        console.error('Error logging in:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error sending request:', error);
+    }
   };
+
 
   const handleRegisterButtonClick = () => {
     window.location.href = '/signup';
@@ -32,8 +68,8 @@ export default function Signin(): JSX.Element {
     <section className="h-full bg-neutral-200 dark:bg-neutral-700">
       <Navbar/>
 
-      <div className="container h-full p-10">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+      <div className="flex items-center space-x-4 md:pl-4 md:justify-center md:flex-1 pt-10 pb-10">
+        <div className="flex items-center space-x-4 md:pl-4 md:justify-center md:flex-1 text-neutral-800 dark:text-neutral-200">
           <div className="w-auto">
             <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
                 <div className="px-4">
@@ -56,7 +92,7 @@ export default function Signin(): JSX.Element {
 
                       <div className="mb-4">
                         <label htmlFor="username" className="block text-sm text-neutral-800 dark:text-neutral-200">
-                          Username
+                          Email
                         </label>
                         <input
                           type="text"
@@ -65,7 +101,7 @@ export default function Signin(): JSX.Element {
                           value={formData.username}
                           onChange={handleChange}
                           className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-danger-500 w-full"
-                          placeholder="Enter your username"
+                          placeholder="Enter your email"
                           autoComplete="off"
                         />
                       </div>

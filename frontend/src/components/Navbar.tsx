@@ -41,15 +41,14 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <Logo />
           </div>
-          <div className="flex items-center space-x-4 pl-52 justify-center content-center">
+          <div className="flex items-center space-x-4 md:pl-4 md:justify-center md:flex-1">
             <NavItem to="/home" text="Home" />
             <NavItem to="/services" text="Services" />
             <NavItem to="/doctors" text="Doctors" />
             <NavItem to="/community" text="Community" />
             <NavItem to="/help" text="Help" />
-            <NavItem to="/contact" text="Contact" />
           </div>
-
+  
           {/* Social Media and Email Icons */}
           <div className="flex items-center space-x-4 ml-auto">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
@@ -77,5 +76,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  );
+  );  
 }
