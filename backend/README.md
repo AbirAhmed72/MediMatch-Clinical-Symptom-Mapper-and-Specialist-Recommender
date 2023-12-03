@@ -3,6 +3,7 @@
 Make appointment and predict the disease based on given input using Multinomial Naive Bayes
 
 ## Test run
+
 1. Setup a Virtual Environment. (Python 3.10 and pip required)
 2. Install sqlite3 for the platform
 3. `pip install -r requirements.txt`
@@ -11,3 +12,6 @@ Make appointment and predict the disease based on given input using Multinomial 
 
 use `http://127.0.0.1:8000/docs` to know and test the API end-points
 
+## Bug to be resolved:
+
+1. Replace the space between the symptoms with underscore(_)
