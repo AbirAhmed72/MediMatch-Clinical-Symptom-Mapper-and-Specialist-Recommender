@@ -8,6 +8,7 @@ import Home from './pages/Home.tsx';
 import Signin from './pages/Signin.tsx';
 import Signup from './pages/Signup.tsx';
 import Doctor from './pages/Doctors.tsx';
+import Services from './pages/Services.tsx';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/doctors/:valueParam",
     element: <Doctor />,
+  },
+  {
+    path: "/services",
+    element: <Services />,
   },
 ]);
 
