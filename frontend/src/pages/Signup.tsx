@@ -1,25 +1,27 @@
+import { ChangeEvent, FormEvent, useState } from "react";
 import { TERipple } from "tw-elements-react";
-import { useState, ChangeEvent, FormEvent } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 export default function Signup(): JSX.Element {
   const [formData, setFormData] = useState({
-    name: '',
-    gender: '',
-    dateOfBirth: '',
-    email: '',
-    password: '',
+    name: "",
+    gender: "",
+    dateOfBirth: "",
+    email: "",
+    password: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
   };
-  
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     // Extract relevant data from the form data
@@ -30,35 +32,33 @@ export default function Signup(): JSX.Element {
       email,
       password,
     };
-  
+
     try {
       // Send a POST request to the FastAPI endpoint
-      const response = await fetch('http://0.0.0.0/patient_signup', {
-        method: 'POST',
+      const response = await fetch("http://127.0.0.1:8000/patient_signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(requestData),
       });
-  
+
       // Check if the request was successful (status code 2xx)
       if (response.ok) {
-        console.log('User signed up successfully');
+        console.log("User signed up successfully");
         // Save user details in localStorage or sessionStorage
         const responseData = await response.json();
-        localStorage.setItem('user', JSON.stringify(responseData));
+        localStorage.setItem("user", JSON.stringify(responseData));
         // redirect to sign in page
-        window.location.href = '/signin';
+        window.location.href = "/signin";
       } else {
         // Handle errors or display error messages
-        console.error('Error signing up:', response.statusText);
+        console.error("Error signing up:", response.statusText);
       }
     } catch (error) {
-      console.error('Error sending request:', error);
+      console.error("Error sending request:", error);
     }
   };
-  
-
 
   return (
     <section className="h-full bg-neutral-200 dark:bg-neutral-700">
@@ -81,7 +81,10 @@ export default function Signup(): JSX.Element {
                     </h4>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="max-w-md mx-auto p-4"
+                  >
                     <p className="mb-4 text-base">Create a new account</p>
 
                     <div className="mb-4 flex flex-col">
@@ -180,10 +183,7 @@ export default function Signup(): JSX.Element {
                     </div>
 
                     <div className="mb-12 pb-1 pt-1 text-center">
-                      <TERipple
-                        rippleColor="light"
-                        className="w-full"
-                      >
+                      <TERipple rippleColor="light" className="w-full">
                         <button
                           className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
                           type="submit"

@@ -35,7 +35,7 @@ export default function Signin(): JSX.Element {
 
     try {
       // Send a POST request to the FastAPI token endpoint
-      const response = await fetch('http://0.0.0.0/token', {
+      const response = await fetch('http://127.0.0.1:8000/token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -45,6 +45,7 @@ export default function Signin(): JSX.Element {
 
       if (response.ok) {
         const responseData = await response.json();
+
         // Save user details in localStorage or sessionStorage
         localStorage.setItem('session', JSON.stringify(responseData));
         console.log('User logged in successfully', localStorage.session);
