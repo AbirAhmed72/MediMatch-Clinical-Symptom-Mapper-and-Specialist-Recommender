@@ -1,8 +1,9 @@
-import React from 'react';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const doctors = [
+const default_doctors = [
   {
     id: 1,
     name: 'Dr. Naznin Pervin',
@@ -22,16 +23,59 @@ const doctors = [
   // Add more doctor profiles here
 ];
 
+
+interface DoctorData {
+  id: any;
+  name: string;
+  designation: string;
+  image: string;
+  degrees: string;
+  medicalName: string;
+}
+
 export default function Doctor() {
+  const { valueParam } = useParams();
+  const [required_doctors, setDoctors] = useState<DoctorData[]>([]);
+
+  useEffect(() => {
+    // Fetch data from your API
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/get_doctors_details?disease=${valueParam}`);
+        const data: any[] = await response.json();
+        console.log(data);
+        // Assuming data is an array of arrays, map each inner array to an object
+        const formattedData: DoctorData[] = data.map((doctorData, index) => ({
+          id: index + 1, // You might want to use a better ID mechanism
+          name: doctorData[1],
+          designation: "Specialities - "+doctorData[3],
+          image: '/doctors/doctor-icon.png',
+          degrees: doctorData[2],
+          medicalName: doctorData[4]
+          // Add more properties based on your data structure
+        }));
+
+        setDoctors(formattedData);
+        console.log(formattedData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [valueParam]);
+
+
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <Navbar/>
 
       <div className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-extrabold text-gray-900">Meet Our Doctors</h1>
+          <h1 className="text-4xl font-extrabold text-gray-900">Suggested Doctors</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-            {doctors.map((doctor) => (
+            {required_doctors.map((doctor) => (
               <div key={doctor.id} className="bg-white p-4 border border-gray-300 rounded-lg shadow-md">
                 <img src={doctor.image} alt={doctor.name} className="w-full h-auto rounded-lg" />
                 <h2 className="text-xl font-semibold mt-4">{doctor.name}</h2>
@@ -39,11 +83,9 @@ export default function Doctor() {
                     <div className="text-gray-600 font-semibold">{doctor.designation}</div>
                 )}
                 <div className="mt-2">
-                  {doctor.degrees.map((degree, index) => (
-                    <div key={index} className="text-gray-600">
-                      {degree}
+                    <div className="text-gray-600">
+                      {doctor.degrees}
                     </div>
-                  ))}
                   <p className="text-gray-600 mt-2">{doctor.medicalName}</p>
                 </div>
               </div>

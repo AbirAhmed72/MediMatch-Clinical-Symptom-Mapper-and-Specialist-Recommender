@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/doctors",
+    path: "/doctors/:valueParam",
     element: <Doctor />,
   },
 ]);
