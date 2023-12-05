@@ -1,14 +1,15 @@
+import math
 import random
 from datetime import datetime, time, timedelta
 from typing import List, Optional
 
+import models
+import pandas as pd
+import schemas
 from jose import JWTError, jwt  # JSON Web Token
 from passlib.hash import bcrypt
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.sqltypes import Integer
-
-import models
-import schemas
 
 SECRET_KEY = 'e2c6a3bc1aad22372e102e8f9f657bccd65676aef94587815b9d4d2c4960a650'
 ALGORITHM = "HS256"
@@ -172,7 +173,7 @@ def get_approved_doctors(db: Session, skip: int = 0, limit: int = 10) -> List[sc
         )
     return approved_doctors
 
-# detect symptoms
+#! detect symptoms
 
 def get_symptoms(data):
     
@@ -203,8 +204,40 @@ def get_symptoms(data):
     symptoms = []
     for i in range(len(predicted_text)):
         # print('Symptom: ', predicted_text[i]['word'], 'Score: ', predicted_text[i]['score'])
-        symptoms.append(predicted_text[i]['word'])
+        symptoms.append(predicted_text[i]['word'].replace(' ', '_'))
         
     return symptoms
-        
+  
+#! get symptoms and doctor details
+
+# disease = "Common Cold"
+
+def get_specialist_data(disease):
     
+    df_map = pd.read_csv('../datasets/specialist-to-disease-map.csv')
+    disease = disease.lower()
+    df_filtered = df_map[df_map['Diseases'].str.lower().str.contains(disease)]
+    specialist = df_filtered['Specialities'].str.split(', ').tolist()
+    unique_specialist = set(item for sublist in specialist for item in sublist)
+    
+    return list(unique_specialist)
+
+# sp = get_specialist_data(disease)
+# print(sp)
+
+def get_doctor_details(sp_list):
+    
+    df_doctor  = pd.read_csv('../datasets/all_doctors.csv')
+    
+    doctor_data = []
+    
+    for _, row in df_doctor.iterrows():
+        if any(specialty in row['Specialities'] for specialty in sp_list):
+            if not pd.isna(row['Branch']) and not pd.isna(row['Designation']):
+                doctor_data.append([row['DID'], row['Name'], row['Designation'], row['Specialities'], row['Branch']])
+
+        
+        
+    return doctor_data
+
+# print(get_doctor_details(sp)[3][0])

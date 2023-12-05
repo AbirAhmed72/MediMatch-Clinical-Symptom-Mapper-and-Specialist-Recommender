@@ -3,19 +3,18 @@ from datetime import datetime, time, timedelta
 from typing import List, Optional
 
 import joblib as jb
-from fastapi import Depends, FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from jose import JWTError, jwt
-from sqlalchemy.orm import Session
-from sqlalchemy.sql.expression import false
-from sqlalchemy.sql.sqltypes import Integer
-
 import models
 import schemas
 import services
 from database import SessionLocal, engine
+from fastapi import Depends, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from jose import JWTError, jwt
 from schemas import Symptoms, TokenData
+from sqlalchemy.orm import Session
+from sqlalchemy.sql.expression import false
+from sqlalchemy.sql.sqltypes import Integer
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -204,11 +203,23 @@ async def check_disease(symptoms: Symptoms):
     )
     return result
 
+#! symptoms
 @app.get("/get_symptoms/")
 async def extract_symptoms(patients_data: str):
     
     extracted_symptoms = services.get_symptoms(patients_data)
     return extracted_symptoms
+
+#! doctors 
+@app.get("/get_doctors_details")
+async def get_specified_doctor(disease: str):
+    specialist_info = services.get_specialist_data(disease)
+    doctors_details = services.get_doctor_details(specialist_info)
+
+    if doctors_details:
+        return doctors_details
+    else:
+        return {"error": "No doctors found for the specified disease"}
 
 @app.get("/approved_doctors", response_model=List[schemas.DoctorData])
 async def approved_doctors(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
@@ -295,6 +306,9 @@ async def get_current_user_info(token: str = Depends(oauth2_scheme), db: Session
         "appointment": appointment,
         "role": "user"
     }
+    
+    
+
 
 
 # @app.post('/patient/appointment/add', tags=["Patient"])

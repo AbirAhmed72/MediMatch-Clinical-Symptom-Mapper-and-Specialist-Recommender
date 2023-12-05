@@ -28,6 +28,7 @@ export default function Home() {
           inputValue
         )}`
       );
+      
       const perceivedSymptoms = symptomsResponse.data;
 
       const diseasesResponse = await axios.post<DiseaseResponse>(
