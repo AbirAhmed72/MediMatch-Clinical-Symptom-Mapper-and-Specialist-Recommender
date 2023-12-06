@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -14,8 +14,13 @@ export default function Home() {
   const [showMedicalInfo, setShowMedicalInfo] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
   const [medicalDiseases, setMedicalDiseases] = useState("");
+  const [symptoms, setSymptoms] = useState([]);
   const [required_doctor, setRequiredDoctor] = useState("");
   const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
+    console.log('Updated symptoms:', symptoms);
+  }, [symptoms]);
 
   const handleMedicalInfo = async () => {
     setShowSpinner(true);
@@ -40,10 +45,9 @@ export default function Home() {
       const predicted_disease = diseasesResponse.data.predicted_disease;
       const required_doctor = diseasesResponse.data.required_doctor;
 
+      setSymptoms(symptomsResponse.data);
       setMedicalDiseases(predicted_disease);
       setRequiredDoctor(required_doctor);
-
-      console.log("Symptoms: ", symptomsResponse.data);
 
       setTimeout(() => {
         setShowSpinner(false);
@@ -100,15 +104,43 @@ export default function Home() {
             </div>
 
             {showMedicalInfo && (
-              <div className="mt-8 bg-white p-6 border border-gray-300 rounded-lg shadow-md">
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">
-                  Your Possible Medical Diseases
+              <div className="mt-8 bg-white p-6 border border-gray-300 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6">
+                  Your Medical Information
                 </h2>
-                <ul className="mt-2">
-                  <li key="1" className="text-gray-700 font-semibold ml-4">
-                    {medicalDiseases}
-                  </li>
-                </ul>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Identified Issues */}
+                  <div className="bg-white p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 transform hover:scale-105">
+                    <h3 className="text-xl font-extrabold text-gray-900 mb-2">
+                      Identified Issues
+                    </h3>
+                    <div className="space-y-2">
+                      {symptoms.map((symptom, index) => (
+                        <div key={index} className="font-semibold text-sm text-blue-700 block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                          {symptom}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Probable Diseases */}
+                  <div className="bg-white p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 transform hover:scale-105">
+                    <h3 className="text-xl font-extrabold text-gray-900 mb-2">
+                      Probable Disease
+                    </h3>
+                    <p className="font-semibold text-sm text-blue-700 block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">{medicalDiseases}</p>
+                  </div>
+
+                  {/* Recommended Doctor */}
+                  <div className="bg-white p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 transform hover:scale-105">
+                    <h3 className="text-xl font-extrabold text-gray-900 mb-2">
+                      Suggested Doctor
+                    </h3>
+                    <p className="font-semibold text-sm text-blue-700 max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">{required_doctor}</p>
+                  </div>
+                </div>
+
                 <Link to={`/doctors/${medicalDiseases}`}>
                   <button className="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 ease-in-out transform hover:scale-105">
                     Find Doctors Relevant to Your Diseases
@@ -116,6 +148,7 @@ export default function Home() {
                 </Link>
               </div>
             )}
+
           </div>
         </div>
       </div>
