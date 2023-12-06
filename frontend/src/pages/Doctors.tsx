@@ -1,8 +1,8 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import axios from "axios";
 
 interface DoctorData {
   id: any;
@@ -18,6 +18,11 @@ export default function Doctor() {
   const [required_doctors, setDoctors] = useState<DoctorData[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [selectedDesignation, setSelectedDesignation] = useState<string>("");
+
+  const uniqueDesignations = new Set(
+    required_doctors.map((doctor) => doctor.designation)
+  );
 
   useEffect(() => {
     fetchData();
@@ -37,14 +42,16 @@ export default function Doctor() {
       const data = doctorInfoResponse.data.doctors;
       console.log(data);
 
-      const formattedData: DoctorData[] = data.map((doctorData: any[], index: number) => ({
-        id: index + 1,
-        name: doctorData[1],
-        designation: "Specialities - " + doctorData[3],
-        image: "/doctor_images/" + doctorData[0].split("-")[1] + ".png",
-        degrees: doctorData[2],
-        medicalName: doctorData[4],
-      }));
+      const formattedData: DoctorData[] = data.map(
+        (doctorData: any[], index: number) => ({
+          id: index + 1,
+          name: doctorData[1],
+          designation: "Specialities - " + doctorData[3],
+          image: "/doctor_images/" + doctorData[0].split("-")[1] + ".png",
+          degrees: doctorData[2],
+          medicalName: doctorData[4],
+        })
+      );
 
       setDoctors(formattedData);
       console.log(formattedData);
@@ -55,19 +62,33 @@ export default function Doctor() {
     }
   };
 
+  const handleDropdownChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedDesignation(e.target.value);
+  };
+
   const handleSearch = async () => {
     try {
       setLoading(true);
-      // Simulating an API call with a delay
-      await new Promise((resolve) => setTimeout(resolve, 500));
 
-      if (searchTerm === "") {
-        // If search term is empty, show all doctors
+      if (searchTerm === "" && selectedDesignation === "") {
+        // If both search term and selected designation are empty, show all doctors
         fetchData();
       } else {
-        const filteredDoctors = required_doctors.filter((doctor) =>
-          doctor.medicalName.toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        // Filter doctors based on search term and selected designation
+        let filteredDoctors = required_doctors;
+
+        if (searchTerm !== "") {
+          filteredDoctors = filteredDoctors.filter((doctor) =>
+            doctor.medicalName.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+        }
+
+        if (selectedDesignation !== "") {
+          filteredDoctors = filteredDoctors.filter(
+            (doctor) => doctor.designation === selectedDesignation
+          );
+        }
+
         setDoctors(filteredDoctors);
       }
     } finally {
@@ -112,13 +133,33 @@ export default function Doctor() {
                 </svg>
               </div>
             </div>
-            <button
-              onClick={handleSearch}
-              className="ml-2 px-4 py-2 transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-            >
-              Search
-            </button>
           </div>
+
+          {/* Add the dropdown list */}
+          <div className="my-4 flex items-center justify-center p-5">
+            <label className="text-xl mr-2 text-gray-700 font-bold">
+              Filter by Designation:
+            </label>
+            <select
+              value={selectedDesignation}
+              onChange={handleDropdownChange}
+              className="border p-2 focus:outline-none focus:border-blue-500 rounded-md shadow-md"
+            >
+              <option value="">Select Designation</option>
+              {[...uniqueDesignations].map((designation, index) => (
+                <option key={index} value={designation}>
+                  {designation}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <button
+            onClick={handleSearch}
+            className="ml-2 px-4 py-2 transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+          >
+            Search
+          </button>
 
           {/* Loading spinner */}
           <div className="items-center">
@@ -144,12 +185,14 @@ export default function Doctor() {
                 />
                 <h2 className="text-xl font-semibold mt-4">{doctor.name}</h2>
                 {doctor.designation && (
-                  <div className="text-gray-600 font-semibold">
+                  <div className=" font-semibold text-blue-600">
                     {doctor.designation}
                   </div>
                 )}
                 <div className="mt-2">
-                  <div className="text- font-semibold">{doctor.degrees}</div>
+                  <div className="text- font-semibold my-5 text-red-700">
+                    {doctor.degrees}
+                  </div>
                   <p className="font-bold mt-2 bg-gray-600 text-white">
                     {doctor.medicalName}
                   </p>
