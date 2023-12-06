@@ -44,9 +44,9 @@ export default function Navbar() {
           <div className="flex items-center space-x-4 md:pl-4 md:justify-center md:flex-1">
             <NavItem to="/home" text="Home" />
             <NavItem to="/services" text="Services" />
-            <NavItem to="/doctors" text="Doctors" />
-            <NavItem to="/community" text="Community" />
-            <NavItem to="/help" text="Help" />
+            {/* <NavItem to="/doctors" text="Doctors" /> */}
+            {/* <NavItem to="/community" text="Community" /> */}
+            {/* <NavItem to="/help" text="Help" /> */}
           </div>
   
           {/* Social Media and Email Icons */}

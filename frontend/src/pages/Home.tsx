@@ -21,14 +21,13 @@ export default function Home() {
     setShowSpinner(true);
 
     try {
-      
       // Step 1: Make a GET request to get symptoms
       const symptomsResponse = await axios.get(
         `http://127.0.0.1:8000/get_symptoms/?patients_data=${encodeURIComponent(
           inputValue
         )}`
       );
-      
+
       const perceivedSymptoms = symptomsResponse.data;
 
       const diseasesResponse = await axios.post<DiseaseResponse>(
@@ -43,6 +42,8 @@ export default function Home() {
 
       setMedicalDiseases(predicted_disease);
       setRequiredDoctor(required_doctor);
+
+      console.log("Symptoms: ", symptomsResponse.data);
 
       setTimeout(() => {
         setShowSpinner(false);
