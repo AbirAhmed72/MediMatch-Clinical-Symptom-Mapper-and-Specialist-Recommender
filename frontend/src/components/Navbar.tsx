@@ -45,8 +45,7 @@ export default function Navbar() {
             <NavItem to="/home" text="Home" />
             <NavItem to="/services" text="Services" />
             <NavItem to="/doctors" text="Doctors" />
-            {/* <NavItem to="/community" text="Community" /> */}
-            {/* <NavItem to="/help" text="Help" /> */}
+            <NavItem to="/community" text="Community" /> 
           </div>
   
           {/* Social Media and Email Icons */}
