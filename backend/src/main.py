@@ -107,6 +107,8 @@ async def check_disease(symptoms: Symptoms):
     # 'Heart attack', 'Varicose veins','Hypothyroidism', 'Hyperthyroidism', 'Hypoglycemia', 'Osteoarthristis', 'Arthritis',
     # '(vertigo) Paroymsal  Positional Vertigo','Acne', 'Urinary tract infection', 'Psoriasis', 'Impetigo'
     # ]
+    
+    
     symptoms_list = [
         'itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing', 'shivering', 'chills', 'joint_pain',
         'stomach_pain', 'acidity', 'ulcers_on_tongue', 'muscle_wasting', 'vomiting', 'burning_micturition', 'spotting_ urination',
@@ -217,7 +219,7 @@ async def get_specified_doctor(disease: str):
     doctors_details = services.get_doctor_details(specialist_info)
 
     if doctors_details:
-        return doctors_details
+        return {"specialist": ",\n".join(specialist_info), "doctors": doctors_details }
     else:
         return {"error": "No doctors found for the specified disease"}
 

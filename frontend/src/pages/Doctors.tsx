@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 
 interface DoctorData {
   id: any;
@@ -29,13 +30,14 @@ export default function Doctor() {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(
+      const doctorInfoResponse = await axios.get(
         `http://127.0.0.1:8000/get_doctors_details?disease=${valueParam}`
       );
-      const data: any[] = await response.json();
+
+      const data = doctorInfoResponse.data.doctors;
       console.log(data);
 
-      const formattedData: DoctorData[] = data.map((doctorData, index) => ({
+      const formattedData: DoctorData[] = data.map((doctorData: any[], index: number) => ({
         id: index + 1,
         name: doctorData[1],
         designation: "Specialities - " + doctorData[3],
@@ -85,7 +87,9 @@ export default function Doctor() {
 
           {/* Add a filter input and button */}
           <div className="my-4 flex items-center justify-center p-5">
-            <label className="text-xl mr-2 text-gray-700 font-bold">Search by Location:</label>
+            <label className="text-xl mr-2 text-gray-700 font-bold">
+              Search by Location:
+            </label>
             <div className="relative">
               <input
                 type="text"

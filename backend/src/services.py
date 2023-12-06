@@ -210,7 +210,7 @@ def get_symptoms(data):
   
 #! get symptoms and doctor details
 
-# disease = "Common Cold"
+disease = "Hypoglycemia"
 
 def get_specialist_data(disease):
     
@@ -222,8 +222,8 @@ def get_specialist_data(disease):
     
     return list(unique_specialist)
 
-# sp = get_specialist_data(disease)
-# print(sp)
+sp = get_specialist_data(disease)
+print("\n".join(sp))
 
 def get_doctor_details(sp_list):
     

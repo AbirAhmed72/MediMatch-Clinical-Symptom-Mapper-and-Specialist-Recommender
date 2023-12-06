@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -19,7 +19,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    console.log('Updated symptoms:', symptoms);
+    console.log("Updated symptoms:", symptoms);
   }, [symptoms]);
 
   const handleMedicalInfo = async () => {
@@ -43,7 +43,16 @@ export default function Home() {
       );
 
       const predicted_disease = diseasesResponse.data.predicted_disease;
-      const required_doctor = diseasesResponse.data.required_doctor;
+
+      const doctorInfoResponse = await axios.get(
+        `http://127.0.0.1:8000/get_doctors_details?disease=${encodeURIComponent(
+          predicted_disease
+        )}`
+      );
+
+      const required_doctor = doctorInfoResponse.data.specialist;
+
+      // console.log(doctorInfoResponse.data.specialist);
 
       setSymptoms(symptomsResponse.data);
       setMedicalDiseases(predicted_disease);
@@ -52,7 +61,7 @@ export default function Home() {
       setTimeout(() => {
         setShowSpinner(false);
         setShowMedicalInfo(true);
-      }, 2000);
+      }, 1500);
     } catch (error) {
       console.error("Error fetching medical information:", error);
       setShowSpinner(false);
@@ -117,7 +126,10 @@ export default function Home() {
                     </h3>
                     <div className="space-y-2">
                       {symptoms.map((symptom, index) => (
-                        <div key={index} className="font-semibold text-sm text-blue-700 block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <div
+                          key={index}
+                          className="font-semibold text-sm text-blue-700 block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 whitespace-normal"
+                        >
                           {symptom}
                         </div>
                       ))}
@@ -129,15 +141,19 @@ export default function Home() {
                     <h3 className="text-xl font-extrabold text-gray-900 mb-2">
                       Probable Disease
                     </h3>
-                    <p className="font-semibold text-sm text-blue-700 block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">{medicalDiseases}</p>
+                    <p className="font-semibold text-sm text-blue-700 block max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                      {medicalDiseases}
+                    </p>
                   </div>
 
                   {/* Recommended Doctor */}
                   <div className="bg-white p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 transform hover:scale-105">
                     <h3 className="text-xl font-extrabold text-gray-900 mb-2">
-                      Suggested Doctor
+                      Suggested Specialist
                     </h3>
-                    <p className="font-semibold text-sm text-blue-700 max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">{required_doctor}</p>
+                    <p className="font-semibold text-sm text-blue-700 max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                      {required_doctor}
+                    </p>
                   </div>
                 </div>
 
@@ -148,7 +164,6 @@ export default function Home() {
                 </Link>
               </div>
             )}
-
           </div>
         </div>
       </div>
